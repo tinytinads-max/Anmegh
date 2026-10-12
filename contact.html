@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | Solar Energy & Water Purifier</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+
+        /* =========================
+           ROOT
+        ========================= */
+
+        :root {
+            --blue: #4a6aac;
+            --green: #9dc664;
+
+            --dark: #111820;
+            --dark-2: #101820;
+            --dark-3: #0d151c;
+
+            --text: #ffffff;
+            --light-text: #b9c2cb;
+
+            --border: rgba(255, 255, 255, 0.10);
+            --card: #18232d;
+
+            --transition: 0.3s ease;
+        }
+
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #ffffff;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea {
+            font-family: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 85px;
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+
+            background: rgba(13, 21, 28, 0.72);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-container {
+            width: min(1200px, 92%);
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        /* LOGO */
+
+        .logo img {
+            width: 125px;
+            height: auto;
+            object-fit: contain;
+        }
+
+
+        /* DESKTOP NAV */
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 38px;
+        }
+
+        .desktop-nav > a,
+        .products-link {
+            position: relative;
+
+            color: rgba(255, 255, 255, 0.90);
+
+            font-size: 13px;
+            font-weight: 500;
+
+            letter-spacing: 0.3px;
+
+            transition: var(--transition);
+        }
+
+        .desktop-nav > a::after,
+        .products-link::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+
+            width: 0;
+            height: 2px;
+
+            background: var(--green);
+
+            transition: var(--transition);
+        }
+
+        .desktop-nav > a:hover,
+        .products-link:hover {
+            color: var(--green);
+        }
+
+        .desktop-nav > a:hover::after,
+        .products-link:hover::after {
+            width: 100%;
+        }
+
+        .desktop-nav .active {
+            color: var(--green);
+        }
+
+        .desktop-nav .active::after {
+            width: 100%;
+        }
+
+
+        /* =========================
+           PRODUCTS DROPDOWN
+        ========================= */
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        /* Invisible bridge between PRODUCTS and dropdown
+           so the menu does not disappear while moving the cursor */
+        .nav-dropdown::after {
+            content: "";
+            position: absolute;
+            left: -10px;
+            right: -10px;
+            top: 100%;
+            height: 22px;
+            background: transparent;
+        }
+
+        .products-link {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            cursor: pointer;
+        }
+
+        .dropdown-arrow {
+            font-size: 9px;
+            transition: transform var(--transition);
+        }
+
+        .nav-dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+
+            top: calc(100% + 10px);
+            left: 50%;
+
+            transform: translateX(-50%) translateY(10px);
+
+            width: 225px;
+
+            padding: 8px;
+
+            background: rgba(17, 24, 32, 0.97);
+            backdrop-filter: blur(15px);
+
+            border: 1px solid rgba(157, 198, 100, 0.25);
+            border-radius: 10px;
+
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+
+            transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+        }
+
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown:focus-within .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+
+            padding: 13px 15px;
+
+            color: #ffffff;
+
+            font-size: 12px;
+            font-weight: 500;
+
+            border-radius: 6px;
+
+            transition: var(--transition);
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--green);
+            background: rgba(157, 198, 100, 0.08);
+            padding-left: 20px;
+        }
+
+
+        /* GET STARTED BUTTON */
+
+        .nav-button {
+            padding: 11px 20px;
+
+            border-radius: 30px;
+
+            background: var(--blue);
+            color: #ffffff !important;
+
+            font-size: 12px !important;
+            font-weight: 600 !important;
+
+            transition: var(--transition);
+        }
+
+        .nav-button:hover {
+            background: var(--green);
+            color: var(--dark) !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-button::after {
+            display: none !important;
+        }
+
+
+        /* =========================
+           MOBILE MENU BUTTON
+        ========================= */
+
+        .menu-toggle {
+            display: none;
+
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+
+            background: transparent;
+            color: #ffffff;
+
+            cursor: pointer;
+
+            font-size: 18px;
+        }
+
+
+        /* MOBILE NAV */
+
+        .mobile-nav {
+            display: none;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .contact-hero {
+            position: relative;
+
+            min-height: 440px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 130px 20px 90px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(13, 21, 28, 0.93),
+                    rgba(74, 106, 172, 0.78),
+                    rgba(13, 21, 28, 0.92)
+                ),
+                url("images/solar8.jpg") center/cover no-repeat;
+
+            overflow: hidden;
+        }
+
+        .contact-hero::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+
+            width: 100%;
+            height: 80px;
+
+            background: #ffffff;
+
+            clip-path: polygon(
+                0 75%,
+                20% 65%,
+                40% 78%,
+                60% 58%,
+                80% 70%,
+                100% 50%,
+                100% 100%,
+                0 100%
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 760px;
+        }
+
+        .hero-content h1 {
+            margin-bottom: 15px;
+
+            color: #ffffff;
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: clamp(34px, 5vw, 54px);
+            font-weight: 700;
+
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            max-width: 650px;
+            margin: auto;
+
+            color: rgba(255, 255, 255, 0.88);
+
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .hero-line {
+            width: 55px;
+            height: 3px;
+
+            margin: 22px auto 0;
+
+            background: var(--green);
+
+            border-radius: 5px;
+        }
+
+
+        /* =========================
+           CONTACT WRAPPER
+        ========================= */
+
+        .contact-section {
+            position: relative;
+            z-index: 5;
+
+            width: min(1120px, 92%);
+
+            margin: -65px auto 0;
+
+            background: #ffffff;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 20px 60px rgba(13, 21, 28, 0.12);
+
+            overflow: hidden;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 38% 62%;
+        }
+
+
+        /* =========================
+           CONTACT INFORMATION
+        ========================= */
+
+        .contact-info {
+            padding: 55px 45px;
+
+            background-color: #fff;
+        }
+
+        .section-title {
+            font-family: "Montserrat", sans-serif;
+
+            color: var(--dark);
+
+            font-size: 28px;
+            font-weight: 700;
+
+            margin-bottom: 14px;
+        }
+
+        .section-description {
+            color: #69747e;
+
+            font-size: 13px;
+            line-height: 1.7;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* INFO ITEM */
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+
+            margin-bottom: 25px;
+        }
+
+        .info-icon {
+            flex-shrink: 0;
+
+            width: 43px;
+            height: 43px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--blue);
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+            box-shadow: 0 7px 20px rgba(74, 106, 172, 0.22);
+        }
+
+        .info-content h4 {
+            margin-bottom: 5px;
+
+            color: var(--dark);
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .info-content p {
+            color: #68737d;
+
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .info-content a {
+            transition: var(--transition);
+        }
+
+        .info-content a:hover {
+            color: var(--blue);
+        }
+
+
+        /* SOCIAL */
+
+        .social-area {
+            margin-top: 30px;
+            padding-top: 25px;
+
+            border-top: 1px solid #d9dfe4;
+        }
+
+        .social-area h4 {
+            margin-bottom: 15px;
+
+            color: var(--dark);
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 14px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 9px;
+        }
+
+        .social-links a {
+            width: 35px;
+            height: 35px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--blue);
+
+            color: #ffffff;
+
+            border-radius: 50%;
+
+            font-size: 13px;
+
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--green);
+            color: var(--dark);
+
+            transform: translateY(-4px);
+        }
+
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .contact-form-area {
+            padding: 55px 50px;
+        }
+
+        .contact-form-area .section-title {
+            margin-bottom: 28px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #303a43;
+
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+
+            border: 1px solid #e0e5ea;
+            border-radius: 8px;
+
+            background: #f7f9fb;
+
+            color: var(--dark);
+
+            outline: none;
+
+            font-size: 13px;
+
+            transition: var(--transition);
+        }
+
+        .form-group input {
+            height: 46px;
+            padding: 0 14px;
+        }
+
+        .form-group textarea {
+            min-height: 125px;
+
+            padding: 14px;
+
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--blue);
+
+            background: #ffffff;
+
+            box-shadow: 0 0 0 3px rgba(74, 106, 172, 0.08);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #a3adb6;
+        }
+
+
+        /* SUBMIT */
+
+        .submit-btn {
+            width: 100%;
+
+            height: 48px;
+
+            border: none;
+            border-radius: 25px;
+
+            background: var(--blue);
+
+            color: #ffffff;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background: var(--green);
+
+            color: var(--dark);
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 8px 20px rgba(157, 198, 100, 0.20);
+        }
+
+
+        /* =========================
+           MAP
+        ========================= */
+
+        .map-section {
+            width: 100%;
+
+            margin-top: 70px;
+
+            height: 400px;
+
+            overflow: hidden;
+        }
+
+        .map-section iframe {
+            width: 100%;
+            height: 100%;
+
+            border: 0;
+
+            filter: saturate(0.85);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: var(--dark-3);
+
+            color: #ffffff;
+
+            padding: 60px 0 25px;
+        }
+
+        .footer-container {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        .footer-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding-bottom: 28px;
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+        }
+
+        .footer-logo img {
+            width: 125px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 9px;
+        }
+
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--blue);
+
+            color: #ffffff;
+
+            font-size: 13px;
+
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--green);
+            color: var(--dark);
+
+            transform: translateY(-3px);
+        }
+
+
+        /* FOOTER GRID */
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.3fr
+                1fr
+                1fr
+                1.4fr;
+
+            gap: 40px;
+
+            padding: 42px 0;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+
+            color: #ffffff;
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            display: block;
+
+            color: #9da8b2;
+
+            /* Increased to match the larger footer text on the About page */
+            font-size: 14px;
+            line-height: 1.9;
+
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: var(--green);
+            padding-left: 3px;
+        }
+
+
+        /* NEWSLETTER */
+
+        .newsletter-form {
+            display: flex;
+
+            gap: 8px;
+
+            margin-top: 15px;
+        }
+
+        .newsletter-form input {
+            min-width: 0;
+            flex: 1;
+
+            height: 42px;
+
+            border: none;
+            border-radius: 22px;
+
+            padding: 0 15px;
+
+            outline: none;
+
+            font-size: 13px;
+        }
+
+        .newsletter-form button {
+            width: 105px;
+
+            border: none;
+            border-radius: 22px;
+
+            background: var(--blue);
+
+            color: #ffffff;
+
+            font-size: 12px;
+
+            cursor: pointer;
+
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background: var(--green);
+            color: var(--dark);
+        }
+
+
+        /* FOOTER BOTTOM */
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding-top: 22px;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.10);
+
+            color: #7f8b95;
+
+            font-size: 12px;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 18px;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--green);
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 991px) {
+
+            header {
+                height: 75px;
+            }
+
+            .desktop-nav {
+                gap: 20px;
+            }
+
+            .contact-hero {
+                min-height: 400px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                padding: 45px;
+            }
+
+            .contact-form-area {
+                padding: 45px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .map-section {
+                height: 350px;
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 767px) {
+
+            /* HEADER */
+
+            header {
+                height: 72px;
+
+                background: rgba(13, 21, 28, 0.94);
+            }
+
+            .nav-container {
+                width: 90%;
+            }
+
+            .logo img {
+                width: 105px;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+
+            /* MOBILE NAV */
+
+            .mobile-nav {
+                position: fixed;
+
+                top: 72px;
+                left: 0;
+
+                width: 100%;
+
+                padding: 18px 5% 25px;
+
+                background: rgba(13, 21, 28, 0.98);
+
+                backdrop-filter: blur(15px);
+
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+                display: flex;
+                flex-direction: column;
+
+                transform: translateY(-15px);
+
+                opacity: 0;
+                visibility: hidden;
+
+                transition: 0.3s ease;
+            }
+
+            .mobile-nav.active {
+                transform: translateY(0);
+
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .mobile-nav > a,
+            .mobile-products-btn {
+                padding: 14px 5px;
+
+                color: #ffffff;
+
+                border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+                font-size: 13px;
+                font-weight: 500;
+            }
+
+            .mobile-products-btn {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                cursor: pointer;
+            }
+
+            .mobile-products-btn i {
+                transition: 0.3s ease;
+            }
+
+            .mobile-products-btn.open i {
+                transform: rotate(180deg);
+            }
+
+            .mobile-products-menu {
+                display: none;
+
+                padding: 5px 0 8px 12px;
+            }
+
+            .mobile-products-menu.active {
+                display: block;
+            }
+
+            .mobile-products-menu a {
+                display: block;
+
+                padding: 11px 5px;
+
+                color: #aeb8c1;
+
+                font-size: 12px;
+            }
+
+            .mobile-products-menu a:hover {
+                color: var(--green);
+            }
+
+
+            /* HERO */
+
+            .contact-hero {
+                min-height: 390px;
+
+                padding:
+                    115px 20px
+                    85px;
+            }
+
+            .hero-content h1 {
+                font-size: 35px;
+            }
+
+            .hero-content p {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+            .contact-hero::after {
+                height: 60px;
+            }
+
+
+            /* CONTACT */
+
+            .contact-section {
+                width: 92%;
+
+                margin-top: -45px;
+
+                border-radius: 10px;
+            }
+
+            .contact-info {
+                padding: 35px 25px;
+            }
+
+            .contact-form-area {
+                padding: 35px 25px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .section-description {
+                font-size: 12px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+
+                gap: 0;
+            }
+
+            .info-item {
+                margin-bottom: 22px;
+            }
+
+
+            /* MAP */
+
+            .map-section {
+                height: 300px;
+
+                margin-top: 50px;
+            }
+
+
+            /* FOOTER */
+
+            footer {
+                padding-top: 45px;
+            }
+
+            .footer-top {
+                align-items: flex-start;
+
+                gap: 25px;
+
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+
+                gap: 30px;
+
+                padding: 35px 0;
+            }
+
+            .newsletter-form {
+                max-width: 100%;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 15px;
+
+                line-height: 1.7;
+            }
+
+            .footer-bottom-links {
+                flex-wrap: wrap;
+
+                gap: 12px;
+            }
+        }
+
+
+        /* =========================
+           SMALL MOBILE
+        ========================= */
+
+        @media (max-width: 430px) {
+
+            .logo img {
+                width: 95px;
+            }
+
+            .menu-toggle {
+                width: 39px;
+                height: 39px;
+
+                font-size: 16px;
+            }
+
+            .contact-hero {
+                min-height: 365px;
+
+                padding-top: 105px;
+            }
+
+            .hero-content h1 {
+                font-size: 30px;
+
+                letter-spacing: -0.5px;
+            }
+
+            .hero-content p {
+                font-size: 13px;
+            }
+
+            .contact-section {
+                width: 94%;
+            }
+
+            .contact-info,
+            .contact-form-area {
+                padding: 30px 20px;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+
+            .info-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .info-content h4 {
+                font-size: 13px;
+            }
+
+            .info-content p {
+                font-size: 11px;
+            }
+
+            .form-group input {
+                height: 44px;
+            }
+
+            .form-group textarea {
+                min-height: 115px;
+            }
+
+            .map-section {
+                height: 260px;
+            }
+
+            .newsletter-form {
+                flex-direction: row;
+                align-items: stretch;
+                gap: 8px;
+                width: 100%;
+            }
+
+            .newsletter-form input {
+                flex: 1 1 0;
+                min-width: 0;
+                width: 0;
+                height: 46px;
+                padding: 0 14px;
+                font-size: 13px;
+            }
+
+            .newsletter-form button {
+                flex: 0 0 100px;
+                width: 100px;
+                min-height: 46px;
+                padding: 0 10px;
+                white-space: nowrap;
+                font-size: 12px;
+            }
+
+            .footer-social a {
+                width: 34px;
+                height: 34px;
+            }
+        }
+
+
+        /* =========================
+           VERY SMALL
+        ========================= */
+
+        @media (max-width: 360px) {
+
+            .newsletter-form {
+                gap: 6px;
+            }
+
+            .newsletter-form button {
+                flex-basis: 88px;
+                width: 88px;
+                padding: 0 6px;
+                font-size: 11px;
+            }
+
+            .newsletter-form input {
+                padding: 0 10px;
+                font-size: 12px;
+            }
+
+            .hero-content h1 {
+                font-size: 27px;
+            }
+
+            .contact-info,
+            .contact-form-area {
+                padding: 27px 17px;
+            }
+
+            .section-title {
+                font-size: 21px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header>
+
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                <img src="./images/Anmegh - Logo --1.png" alt="Logo">
+            </a>
+
+
+            <!-- DESKTOP NAV -->
+
+            <nav class="desktop-nav">
+
+                <a href="index.html">
+                    HOME
+                </a>
+
+                <a href="about.html">
+                    ABOUT
+                </a>
+
+                <div class="nav-dropdown">
+
+                    <a href="products.html" class="products-link">
+                        PRODUCTS
+                        <span class="dropdown-arrow">▼</span>
+                    </a>
+
+                    <div class="dropdown-menu">
+
+                        <a href="./solarpanel.html">
+                            SOLAR PANEL
+                        </a>
+
+                        <a href="./waterpurifier.html">
+                            SOLAR WATER PURIFIER
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <a href="gallery.html">
+                    GALLERY
+                </a>
+
+                <a href="contact.html" class="active">
+                    CONTACT
+                </a>
+
+                <!-- <a href="contact.html" class="nav-button">
+                    GET STARTED
+                </a> -->
+
+            </nav>
+
+
+            <!-- MOBILE MENU BUTTON -->
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+
+        <!-- MOBILE NAV -->
+
+        <nav class="mobile-nav" id="mobileNav">
+
+            <a href="index.html">
+                HOME
+            </a>
+
+            <a href="about.html">
+                ABOUT
+            </a>
+
+            <div class="mobile-products">
+
+                <div class="mobile-products-btn" id="mobileProductsBtn">
+
+                    <span>PRODUCTS</span>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </div>
+
+                <div class="mobile-products-menu" id="mobileProductsMenu">
+
+                    <a href="./solarpanel.html">
+                        SOLAR PANEL
+                    </a>
+
+                    <a href="./waterpurifier.html">
+                        SOLAR WATER PURIFIER
+                    </a>
+
+                </div>
+
+            </div>
+
+            <a href="gallery.html">
+                GALLERY
+            </a>
+
+            <a href="contact.html">
+                CONTACT
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="contact-hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Contact Us
+            </h1>
+
+            <p>
+                We're here to help you find the right solar energy
+                and water purification solution for your needs.
+            </p>
+
+            <div class="hero-line"></div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT SECTION
+    ========================= -->
+
+    <section class="contact-section">
+
+        <div class="contact-grid">
+
+
+            <!-- LEFT -->
+
+            <div class="contact-info">
+
+                <h2 class="section-title">
+                    Get in touch
+                </h2>
+
+                <p class="section-description">
+                    Have a question about our solar panels or solar
+                    water purification systems? Get in touch with our
+                    team and we'll be happy to assist you.
+                </p>
+
+
+                <!-- LOCATION -->
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                    <div class="info-content">
+
+                        <h4>
+                            Head Office
+                        </h4>
+
+                        <p>
+                            Kerala, India
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+
+                    <div class="info-content">
+
+                        <h4>
+                            Email Us
+                        </h4>
+
+                        <p>
+                            <a href="mailto:info@example.com">
+                                tinyt@interactive.com
+                            </a>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+
+                    <div class="info-content">
+
+                        <h4>
+                            Call Us
+                        </h4>
+
+                        <p>
+                            <a href="tel:+919876543210">
+                                +91 98765 43210
+                            </a>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SOCIAL -->
+
+                <div class="social-area">
+
+                    <h4>
+                        Follow our social media
+                    </h4>
+
+                    <div class="social-links">
+
+                        <a href="#" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="#" aria-label="Twitter">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+
+                        <a href="#" aria-label="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RIGHT -->
+
+            <div class="contact-form-area">
+
+                <h2 class="section-title">
+                    Send us a message
+                </h2>
+
+
+                <form id="contactForm">
+
+
+                    <!-- NAME + COMPANY -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="company">
+                                Company
+                            </label>
+
+                            <input
+                                type="text"
+                                id="company"
+                                name="company"
+                                placeholder="Company name"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PHONE + EMAIL -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Phone number"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Email address"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SUBJECT -->
+
+                    <div class="form-group">
+
+                        <label for="subject">
+                            Subject
+                        </label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            placeholder="Subject"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- MESSAGE -->
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Write your message..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                    >
+                        SEND MESSAGE
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         MAP
+    ========================= -->
+
+    <section class="map-section">
+
+        <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.770077596658!2d76.47525187404214!3d10.117897089993619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07e3271af1f65b%3A0x482f2984ed5ace2!2stinyt%20interactive!5e0!3m2!1sen!2sin!4v1791798947832!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Location Map">
+        </iframe>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-container">
+
+
+            <!-- FOOTER TOP -->
+
+            <div class="footer-top">
+
+                <a href="index.html" class="footer-logo">
+
+                    <img
+                        src="./images/Anmegh - Logo --1.png"
+                        alt="Logo"
+                    >
+
+                </a>
+
+
+                <div class="footer-social">
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FOOTER GRID -->
+
+            <div class="footer-grid">
+
+
+                <!-- COLUMN 1 -->
+
+                <div class="footer-column">
+
+                    <h3>
+                        Head Office
+                    </h3>
+
+                    <p>
+                        Kerala, India
+                    </p>
+
+                    <p>
+                        Solar Energy & Water Purifier
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Branch Location
+                    </p>
+
+                </div>
+
+
+                <!-- COLUMN 2 -->
+
+                <div class="footer-column">
+
+                    <h3>
+                        Get Started
+                    </h3>
+
+                    <a href="./solarpanel.html">
+                        Solar Panels
+                    </a>
+
+                    <a href="./waterpurifier.html">
+                        Solar Water Purifier
+                    </a>
+
+                    <a href="contact.html">
+                        Contact Us
+                    </a>
+
+                </div>
+
+
+                <!-- COLUMN 3 -->
+
+                <div class="footer-column">
+
+                    <h3>
+                        Support
+                    </h3>
+
+                    <a href="#">
+                        Help Center
+                    </a>
+
+                    <a href="#">
+                        Customer Support
+                    </a>
+
+                    <a href="contact.html">
+                        Contact Us
+                    </a>
+
+                </div>
+
+
+                <!-- COLUMN 4 -->
+
+                <div class="footer-column">
+
+                    <h3>
+                        Get in Touch
+                    </h3>
+
+                    <p>
+                        Get updates and information about our
+                        latest solar solutions.
+                    </p>
+
+                    <form class="newsletter-form">
+
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            required
+                        >
+
+                        <button type="submit">
+                            SIGN UP
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FOOTER BOTTOM -->
+
+            <div class="footer-bottom">
+
+                <p>
+                    Copyright © 2026 Solar Energy. All rights reserved.
+                </p>
+
+                <div class="footer-bottom-links">
+
+                    <a href="#">
+                        Terms of Use
+                    </a>
+
+                    <a href="#">
+                        Privacy Policy
+                    </a>
+
+                    <a href="#">
+                        Cookie Policy
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /* =========================
+           MOBILE MENU
+        ========================= */
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const mobileNav =
+            document.getElementById("mobileNav");
+
+        menuToggle.addEventListener("click", function () {
+
+            mobileNav.classList.toggle("active");
+
+            const icon =
+                menuToggle.querySelector("i");
+
+            if (mobileNav.classList.contains("active")) {
+
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-xmark");
+
+            } else {
+
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+
+            }
+
+        });
+
+
+        /* =========================
+           MOBILE PRODUCTS
+        ========================= */
+
+        const mobileProductsBtn =
+            document.getElementById("mobileProductsBtn");
+
+        const mobileProductsMenu =
+            document.getElementById("mobileProductsMenu");
+
+        mobileProductsBtn.addEventListener("click", function () {
+
+            mobileProductsMenu.classList.toggle("active");
+
+            mobileProductsBtn.classList.toggle("open");
+
+        });
+
+
+        /* =========================
+           CLOSE MOBILE MENU
+        ========================= */
+
+        document.querySelectorAll(".mobile-nav a")
+            .forEach(function (link) {
+
+                link.addEventListener("click", function () {
+
+                    mobileNav.classList.remove("active");
+
+                    const icon =
+                        menuToggle.querySelector("i");
+
+                    icon.classList.remove("fa-xmark");
+                    icon.classList.add("fa-bars");
+
+                });
+
+            });
+
+
+        /* =========================
+           CONTACT FORM
+        ========================= */
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        contactForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            alert(
+                "Thank you for contacting us. We will get back to you soon."
+            );
+
+            contactForm.reset();
+
+        });
+
+
+        /* =========================
+           NEWSLETTER
+        ========================= */
+
+        const newsletterForm =
+            document.querySelector(".newsletter-form");
+
+        newsletterForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            alert(
+                "Thank you for subscribing!"
+            );
+
+            newsletterForm.reset();
+
+        });
+
+    </script>
+
+</body>
+
+</html>

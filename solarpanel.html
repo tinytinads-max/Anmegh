@@ -1,0 +1,2924 @@
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Solar Panel | Solar Energy</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> 
+ 
+    <style> 
+ 
+        /* ========================================================= 
+           ROOT 
+        ========================================================= */ 
+ 
+        :root { 
+            --blue: #4a6aac; 
+            --green: #9dc664; 
+ 
+            --dark: #111820; 
+            --dark-2: #101820; 
+            --dark-3: #0d151c; 
+ 
+            --white: #ffffff; 
+            --black: #15191d; 
+ 
+            --gray: #788087; 
+            --light: #f5f7f5; 
+ 
+            --border: rgba(255,255,255,.10); 
+ 
+            --transition: .35s ease; 
+        } 
+ 
+ 
+        /* ========================================================= 
+           RESET 
+        ========================================================= */ 
+ 
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        } 
+ 
+        html { 
+            scroll-behavior: smooth; 
+        } 
+ 
+        body { 
+            font-family: "Inter", sans-serif; 
+            background: #fff; 
+            color: var(--black); 
+            overflow-x: hidden; 
+        } 
+ 
+        a { 
+            color: inherit; 
+            text-decoration: none; 
+        } 
+ 
+        img { 
+            max-width: 100%; 
+            display: block; 
+        } 
+ 
+ 
+        /* ========================================================= 
+           TOP BAR 
+        ========================================================= */ 
+ 
+       
+ 
+        .top-left, 
+        .top-right { 
+            display: flex; 
+            align-items: center; 
+        } 
+ 
+        .top-right { 
+            gap: 22px; 
+        } 
+
+header {
+    height: 82px;
+    background: #132636fa;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+body {
+    padding-top: 82px;
+}
+
+
+ 
+        .nav-container { 
+            width: min(1200px, 92%); 
+            height: 100%; 
+            margin: auto; 
+ 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+        } 
+ 
+        .logo img { 
+            width: 125px; 
+        } 
+ 
+ 
+        /* ========================================================= 
+           DESKTOP NAV 
+        ========================================================= */ 
+ 
+        .desktop-nav { 
+            display: flex; 
+            align-items: center; 
+            gap: 32px; 
+        } 
+ 
+        .desktop-nav > a,
+        .products-link {
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+ 
+        .desktop-nav > a:hover, 
+        .products-link:hover { 
+            color: var(--green); 
+        } 
+ 
+        .products-link { 
+            display: flex; 
+            align-items: center; 
+            gap: 7px; 
+        } 
+ 
+        .dropdown-arrow { 
+            font-size: 8px; 
+            transition: .3s ease; 
+        } 
+ 
+        .nav-dropdown { 
+            position: relative; 
+        } 
+ 
+        .nav-dropdown:hover .dropdown-arrow { 
+            transform: rotate(180deg); 
+        } 
+ 
+ 
+        /* ========================================================= 
+           DROPDOWN 
+        ========================================================= */ 
+ 
+        .dropdown-menu { 
+            position: absolute; 
+ 
+            top: calc(100% + 14px); 
+            left: 50%; 
+ 
+            width: 230px; 
+ 
+            padding: 8px; 
+ 
+            background: rgba(13,21,28,.98); 
+ 
+            border: 1px solid rgba(157,198,100,.25); 
+ 
+            border-radius: 9px; 
+ 
+            opacity: 0; 
+            visibility: hidden; 
+            pointer-events: none; 
+ 
+            transform: translate(-50%, 12px); 
+ 
+            transition: .3s ease; 
+ 
+            box-shadow: 0 18px 40px rgba(0,0,0,.20); 
+        } 
+ 
+        /* bridge */ 
+        .nav-dropdown::after { 
+            content: ""; 
+            position: absolute; 
+            top: 100%; 
+            left: 0; 
+            width: 100%; 
+            height: 17px; 
+        } 
+ 
+        .nav-dropdown:hover .dropdown-menu, 
+        .nav-dropdown:focus-within .dropdown-menu { 
+            opacity: 1; 
+            visibility: visible; 
+            pointer-events: auto; 
+            transform: translate(-50%, 0); 
+        } 
+ 
+        .dropdown-menu a { 
+            display: block; 
+ 
+            padding: 12px 14px; 
+ 
+            color: #fff; 
+ 
+            font-size: 10px; 
+ 
+            border-radius: 5px; 
+ 
+            transition: .3s ease; 
+        } 
+ 
+        .dropdown-menu a:hover { 
+            color: var(--green); 
+            background: rgba(157,198,100,.08); 
+            padding-left: 19px; 
+        } 
+ 
+ 
+        /* ========================================================= 
+           SOCIAL 
+        ========================================================= */ 
+ 
+        .header-social { 
+            display: flex; 
+            gap: 7px; 
+        } 
+ 
+        .header-social a { 
+            width: 30px; 
+            height: 30px; 
+ 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+ 
+            background: #f3f5f3; 
+ 
+            border-radius: 50%; 
+ 
+            color: var(--green); 
+ 
+            font-size: 10px; 
+ 
+            transition: .3s ease; 
+        } 
+ 
+        .header-social a:hover { 
+            background: var(--green); 
+            color: #fff; 
+            transform: translateY(-3px); 
+        } 
+ 
+ 
+        /* ========================================================= 
+           MOBILE BUTTON 
+        ========================================================= */ 
+ 
+        .menu-toggle { 
+            display: none; 
+ 
+            width: 40px; 
+            height: 40px; 
+ 
+            border: 1px solid #ddd; 
+            background: #fff; 
+ 
+            border-radius: 6px; 
+ 
+            cursor: pointer; 
+ 
+            color: var(--dark); 
+ 
+            font-size: 16px; 
+        } 
+ 
+ 
+        /* ========================================================= 
+           HERO 
+        ========================================================= */ 
+ 
+        .hero { 
+            min-height: 650px; 
+ 
+            position: relative; 
+ 
+            background: 
+                linear-gradient( 
+                    100deg, 
+                    rgba(7,15,22,.96) 5%, 
+                    rgba(11,22,30,.82) 45%, 
+                    rgba(11,22,30,.30) 100% 
+                ), 
+                url("images/panel1.jpg") 
+                center / cover no-repeat; 
+ 
+            overflow: hidden; 
+ 
+            display: flex; 
+            align-items: center; 
+        } 
+ 
+ 
+        /* animated light */ 
+ 
+        .hero::before { 
+            content: ""; 
+ 
+            position: absolute; 
+ 
+            width: 500px; 
+            height: 500px; 
+ 
+            right: -170px; 
+            top: -180px; 
+ 
+            border-radius: 50%; 
+ 
+            background: rgba(157,198,100,.10); 
+ 
+            filter: blur(20px); 
+ 
+            animation: pulseLight 5s ease-in-out infinite; 
+        } 
+ 
+        @keyframes pulseLight { 
+ 
+            0%,100% { 
+                transform: scale(1); 
+                opacity: .6; 
+            } 
+ 
+            50% { 
+                transform: scale(1.18); 
+                opacity: 1; 
+            } 
+ 
+        } 
+ 
+ 
+        .hero-content { 
+            width: min(1200px, 92%); 
+            margin: auto; 
+ 
+            position: relative; 
+            z-index: 2; 
+        } 
+ 
+        .hero-small { 
+            color: var(--green); 
+ 
+            font-size: 11px; 
+            font-weight: 700; 
+ 
+            letter-spacing: 3px; 
+ 
+            margin-bottom: 18px; 
+ 
+            animation: heroFade .8s ease forwards; 
+        } 
+ 
+        .hero h1 { 
+            max-width: 720px; 
+ 
+            color: #fff; 
+ 
+            font-family: "Montserrat", sans-serif; 
+ 
+            font-size: clamp(48px, 6vw, 82px); 
+ 
+            font-weight: 600; 
+ 
+            line-height: 1.03; 
+ 
+            animation: heroUp 1s ease forwards; 
+        } 
+ 
+        .hero h1 span { 
+            color: var(--green); 
+        } 
+ 
+        .hero p { 
+            max-width: 580px; 
+ 
+            margin-top: 25px; 
+ 
+            color: rgba(255,255,255,.72); 
+ 
+            font-size: 13px; 
+ 
+            line-height: 1.9; 
+ 
+            animation: heroUp 1.2s ease forwards; 
+        } 
+ 
+        .hero-buttons { 
+            display: flex; 
+            gap: 12px; 
+ 
+            margin-top: 30px; 
+ 
+            animation: heroUp 1.4s ease forwards; 
+        } 
+ 
+        .hero-btn { 
+            display: inline-flex; 
+ 
+            align-items: center; 
+            gap: 9px; 
+ 
+            padding: 14px 22px; 
+ 
+            border-radius: 5px; 
+ 
+            background: var(--green); 
+ 
+            color: #fff; 
+ 
+            font-size: 10px; 
+            font-weight: 600; 
+ 
+            transition: .35s ease; 
+        } 
+ 
+        .hero-btn:hover { 
+            background: var(--blue); 
+            transform: translateY(-3px); 
+        } 
+ 
+        .hero-btn-outline { 
+            background: transparent; 
+            border: 1px solid rgba(255,255,255,.35); 
+        } 
+ 
+        .hero-btn-outline:hover { 
+            background: #fff; 
+            color: var(--dark); 
+            border-color: #fff; 
+        } 
+ 
+ 
+        @keyframes heroFade { 
+ 
+            from { 
+                opacity: 0; 
+            } 
+ 
+            to { 
+                opacity: 1; 
+            } 
+ 
+        } 
+ 
+        @keyframes heroUp { 
+ 
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            } 
+ 
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            } 
+ 
+        } 
+ 
+ 
+        /* ========================================================= 
+           FLOATING SOLAR PANEL 
+        ========================================================= */ 
+ 
+        .hero-panel { 
+            position: absolute; 
+ 
+            right: 7%; 
+            bottom: 60px; 
+ 
+            width: 280px; 
+ 
+            padding: 18px; 
+ 
+            border-radius: 15px; 
+ 
+            background: rgba(255,255,255,.08); 
+ 
+            border: 1px solid rgba(255,255,255,.18); 
+ 
+            backdrop-filter: blur(12px); 
+ 
+            animation: floatingPanel 4s ease-in-out infinite; 
+        } 
+ 
+        .panel-image { 
+            border-radius: 9px; 
+            overflow: hidden; 
+        } 
+ 
+        .panel-image img { 
+            width: 100%; 
+            height: 170px; 
+ 
+            object-fit: cover; 
+        } 
+ 
+        .panel-info { 
+            display: flex; 
+            justify-content: space-between; 
+ 
+            margin-top: 15px; 
+        } 
+ 
+        .panel-info span { 
+            display: block; 
+ 
+            color: rgba(255,255,255,.55); 
+ 
+            font-size: 8px; 
+ 
+            margin-bottom: 4px; 
+        } 
+ 
+        .panel-info strong { 
+            color: #fff; 
+            font-size: 12px; 
+        } 
+ 
+        @keyframes floatingPanel { 
+ 
+            0%,100% { 
+                transform: translateY(0); 
+            } 
+ 
+            50% { 
+                transform: translateY(-13px); 
+            } 
+ 
+        } 
+ 
+ 
+        /* ========================================================= 
+           STATS STRIP 
+        ========================================================= */ 
+ 
+        .stats { 
+            position: relative; 
+            z-index: 5; 
+ 
+            width: min(1050px, 90%); 
+ 
+            margin: -55px auto 0; 
+ 
+            display: grid; 
+            grid-template-columns: repeat(4,1fr); 
+ 
+            background: #fff; 
+ 
+            box-shadow: 0 20px 50px rgba(0,0,0,.10); 
+ 
+            border-radius: 8px; 
+ 
+            overflow: hidden; 
+        } 
+ 
+        .stat { 
+            padding: 28px 20px; 
+ 
+            text-align: center; 
+ 
+            border-right: 1px solid #eee; 
+        } 
+ 
+        .stat:last-child { 
+            border-right: none; 
+        } 
+ 
+        .stat strong { 
+            display: block; 
+ 
+            color: var(--blue); 
+ 
+            font-family: "Montserrat", sans-serif; 
+ 
+            font-size: 25px; 
+ 
+            margin-bottom: 7px; 
+        } 
+ 
+        .stat span { 
+            color: #777; 
+ 
+            font-size: 9px; 
+ 
+            text-transform: uppercase; 
+ 
+            letter-spacing: 1px; 
+        } 
+ 
+ 
+        /* ========================================================= 
+           INTRO 
+        ========================================================= */ 
+ 
+        .intro { 
+            width: min(1200px,92%); 
+ 
+            margin: auto; 
+ 
+            padding: 110px 0; 
+        } 
+ 
+        .intro-grid { 
+            display: grid; 
+ 
+            grid-template-columns: .95fr 1.05fr; 
+ 
+            gap: 80px; 
+ 
+            align-items: center; 
+        } 
+ 
+        .intro-image { 
+            position: relative; 
+        } 
+ 
+        .intro-image img { 
+            width: 100%; 
+            height: 470px; 
+ 
+            object-fit: cover; 
+ 
+            border-radius: 6px; 
+        } 
+ 
+        .image-tag { 
+            position: absolute; 
+ 
+            right: -20px; 
+            bottom: 25px; 
+ 
+            padding: 15px 20px; 
+ 
+            background: var(--green); 
+ 
+            color: #fff; 
+ 
+            border-radius: 5px; 
+ 
+            box-shadow: 0 12px 25px rgba(0,0,0,.15); 
+        } 
+ 
+        .image-tag strong { 
+            display: block; 
+ 
+            font-family: "Montserrat",sans-serif; 
+ 
+            font-size: 20px; 
+        } 
+ 
+        .image-tag span { 
+            font-size: 8px; 
+        } 
+ 
+        .section-label { 
+            color: var(--green); 
+ 
+            font-size: 10px; 
+ 
+            font-weight: 700; 
+ 
+            letter-spacing: 2px; 
+ 
+            margin-bottom: 13px; 
+        } 
+ 
+        .intro h2 { 
+            font-family: "Montserrat", sans-serif; 
+ 
+            font-size: clamp(31px,4vw,48px); 
+ 
+            line-height: 1.15; 
+ 
+            font-weight: 600; 
+ 
+            margin-bottom: 22px; 
+        } 
+ 
+        .intro h2 span { 
+            color: var(--blue); 
+        } 
+ 
+        .intro p { 
+            color: var(--gray); 
+ 
+            font-size: 12px; 
+ 
+            line-height: 1.95; 
+ 
+            margin-bottom: 15px; 
+        } 
+ 
+ 
+        /* ========================================================= 
+           REVEAL ANIMATION 
+        ========================================================= */ 
+ 
+        .reveal { 
+            opacity: 0; 
+ 
+            transform: translateY(50px); 
+ 
+            transition: 
+                opacity .8s ease, 
+                transform .8s ease; 
+        } 
+ 
+        .reveal-left { 
+            opacity: 0; 
+ 
+            transform: translateX(-60px); 
+ 
+            transition: 
+                opacity .8s ease, 
+                transform .8s ease; 
+        } 
+ 
+        .reveal-right { 
+            opacity: 0; 
+ 
+            transform: translateX(60px); 
+ 
+            transition: 
+                opacity .8s ease, 
+                transform .8s ease; 
+        } 
+ 
+        .reveal.active, 
+        .reveal-left.active, 
+        .reveal-right.active { 
+            opacity: 1; 
+            transform: translate(0); 
+        } 
+ 
+ 
+        /* ========================================================= 
+           ENERGY SECTION 
+        ========================================================= */ 
+ 
+        .energy { 
+            padding: 100px 0; 
+ 
+            background: var(--dark); 
+ 
+            color: #fff; 
+ 
+            position: relative; 
+ 
+            overflow: hidden; 
+        } 
+ 
+        .energy::after { 
+            content: ""; 
+ 
+            position: absolute; 
+ 
+            width: 350px; 
+            height: 350px; 
+ 
+            right: -150px; 
+            top: -150px; 
+ 
+            border: 1px solid rgba(157,198,100,.15); 
+ 
+            border-radius: 50%; 
+ 
+            box-shadow: 
+                0 0 0 50px rgba(157,198,100,.03), 
+                0 0 0 100px rgba(157,198,100,.02); 
+        } 
+ 
+        .energy-container { 
+            width: min(1200px,92%); 
+ 
+            margin: auto; 
+ 
+            position: relative; 
+ 
+            z-index: 2; 
+        } 
+ 
+        .energy-heading { 
+            max-width: 650px; 
+ 
+            margin-bottom: 60px; 
+        } 
+ 
+        .energy-heading h2 { 
+            font-family: "Montserrat",sans-serif; 
+ 
+            font-size: clamp(30px,4vw,48px); 
+ 
+            font-weight: 600; 
+ 
+            line-height: 1.15; 
+        } 
+ 
+        .energy-heading h2 span { 
+            color: var(--green); 
+        } 
+ 
+        .energy-heading p { 
+            color: rgba(255,255,255,.55); 
+ 
+            font-size: 12px; 
+ 
+            line-height: 1.8; 
+ 
+            margin-top: 17px; 
+        } 
+ 
+ 
+        /* ENERGY FLOW */ 
+ 
+        .energy-flow { 
+            display: grid; 
+ 
+            grid-template-columns: repeat(4,1fr); 
+ 
+            gap: 20px; 
+        } 
+ 
+        .energy-card { 
+            min-height: 220px; 
+ 
+            padding: 28px 22px; 
+ 
+            border: 1px solid rgba(255,255,255,.09); 
+ 
+            background: rgba(255,255,255,.035); 
+ 
+            border-radius: 7px; 
+ 
+            position: relative; 
+ 
+            transition: .4s ease; 
+        } 
+ 
+        .energy-card:hover { 
+            transform: translateY(-8px); 
+ 
+            border-color: rgba(157,198,100,.35); 
+ 
+            background: rgba(157,198,100,.05); 
+        } 
+ 
+        .energy-number { 
+            color: rgba(157,198,100,.4); 
+ 
+            font-family: "Montserrat",sans-serif; 
+ 
+            font-size: 30px; 
+ 
+            font-weight: 700; 
+ 
+            margin-bottom: 22px; 
+        } 
+ 
+        .energy-card i { 
+            color: var(--green); 
+ 
+            font-size: 21px; 
+ 
+            margin-bottom: 18px; 
+        } 
+ 
+        .energy-card h3 { 
+            font-family: "Montserrat",sans-serif; 
+ 
+            font-size: 14px; 
+ 
+            margin-bottom: 10px; 
+        } 
+ 
+        .energy-card p { 
+            color: rgba(255,255,255,.48); 
+ 
+            font-size: 10px; 
+ 
+            line-height: 1.8; 
+        } 
+ 
+ 
+        /* ========================================================= 
+           PERFORMANCE 
+        ========================================================= */ 
+ 
+        .performance { 
+            padding: 105px 0; 
+        } 
+ 
+        .performance-container { 
+            width: min(1100px,92%); 
+ 
+            margin: auto; 
+ 
+            display: grid; 
+ 
+            grid-template-columns: .9fr 1.1fr; 
+ 
+            gap: 80px; 
+ 
+            align-items: center; 
+        } 
+ 
+        .performance-image img { 
+            width: 100%; 
+ 
+            height: 450px; 
+ 
+            object-fit: cover; 
+ 
+            border-radius: 6px; 
+        } 
+ 
+        .performance-content h2 { 
+            font-family: "Montserrat",sans-serif; 
+ 
+            font-size: clamp(30px,3.5vw,44px); 
+ 
+            line-height: 1.2; 
+ 
+            margin-bottom: 18px; 
+        } 
+ 
+        .performance-content > p { 
+            color: var(--gray); 
+ 
+            font-size: 12px; 
+ 
+            line-height: 1.9; 
+ 
+            margin-bottom: 30px; 
+        } 
+ 
+        .meter { 
+            margin-bottom: 23px; 
+        } 
+ 
+        .meter-head { 
+            display: flex; 
+ 
+            justify-content: space-between; 
+ 
+            margin-bottom: 8px; 
+ 
+            font-size: 10px; 
+ 
+            font-weight: 600; 
+        } 
+ 
+        .meter-head span:last-child { 
+            color: var(--blue); 
+        } 
+ 
+        .meter-track { 
+            width: 100%; 
+ 
+            height: 6px; 
+ 
+            background: #e9ecea; 
+ 
+            border-radius: 10px; 
+ 
+            overflow: hidden; 
+        } 
+ 
+        .meter-fill { 
+            height: 100%; 
+ 
+            width: 0; 
+ 
+            background: linear-gradient( 
+                90deg, 
+                var(--blue), 
+                var(--green) 
+            ); 
+ 
+            border-radius: 10px; 
+ 
+            transition: width 1.5s ease; 
+        } 
+ 
+        .active .meter-fill { 
+            width: var(--width); 
+        } 
+ 
+ 
+        /* ========================================================= 
+           CTA 
+        ========================================================= */ 
+ 
+        .cta { 
+            padding: 90px 20px; 
+ 
+            text-align: center; 
+ 
+            background: 
+                linear-gradient( 
+                    110deg, 
+                    #101820, 
+                    #18252d 
+                ); 
+        } 
+ 
+        .cta .section-label { 
+            color: var(--green); 
+        } 
+ 
+        .cta h2 { 
+            color: #fff; 
+ 
+            font-family: "Montserrat",sans-serif; 
+ 
+            font-size: clamp(30px,4vw,48px); 
+ 
+            margin-bottom: 15px; 
+        } 
+ 
+        .cta p { 
+            max-width: 570px; 
+ 
+            margin: auto; 
+ 
+            color: rgba(255,255,255,.55); 
+ 
+            font-size: 12px; 
+ 
+            line-height: 1.8; 
+        } 
+ 
+        .cta .hero-btn { 
+            margin-top: 25px; 
+        } 
+ 
+ 
+        /* ========================================================= 
+           FOOTER 
+        ========================================================= */ 
+ 
+        footer { 
+            padding-top: 55px; 
+ 
+            background: var(--dark-3); 
+ 
+            color: #fff; 
+        } 
+ 
+        .footer-container { 
+            width: min(1200px,92%); 
+ 
+            margin: auto; 
+        } 
+ 
+        .footer-grid { 
+            display: grid; 
+ 
+            grid-template-columns: 1.3fr 1fr 1fr 1fr; 
+ 
+            gap: 45px; 
+ 
+            padding-bottom: 45px; 
+        } 
+ 
+        .footer-logo { 
+            width: 125px; 
+ 
+            margin-bottom: 18px; 
+        } 
+ 
+        .footer-brand p { 
+            max-width: 260px; 
+ 
+            color: #727a80; 
+ 
+            font-size: 9px; 
+ 
+            line-height: 1.8; 
+        } 
+ 
+        .footer-social { 
+            display: flex; 
+ 
+            gap: 7px; 
+ 
+            margin-top: 18px; 
+        } 
+ 
+        .footer-social a { 
+            width: 30px; 
+            height: 30px; 
+ 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+ 
+            border-radius: 50%; 
+ 
+            background: #222a30; 
+ 
+            color: #9aa1a5; 
+ 
+            font-size: 10px; 
+ 
+            transition: .3s ease; 
+        } 
+ 
+        .footer-social a:hover { 
+            background: var(--green); 
+ 
+            color: #fff; 
+        } 
+ 
+        .footer-column h3 { 
+            margin-bottom: 17px; 
+ 
+            color: #fff; 
+ 
+            font-family: "Montserrat",sans-serif; 
+ 
+            font-size: 10px; 
+ 
+            text-transform: uppercase; 
+        } 
+ 
+        .footer-column a { 
+            display: block; 
+ 
+            margin-bottom: 10px; 
+ 
+            color: #727a80; 
+ 
+            font-size: 9px; 
+ 
+            transition: .3s ease; 
+        } 
+ 
+        .footer-column a:hover { 
+            color: var(--green); 
+ 
+            padding-left: 3px; 
+        } 
+ 
+        .footer-column p { 
+            color: #727a80; 
+ 
+            font-size: 9px; 
+ 
+            line-height: 1.8; 
+ 
+            margin-bottom: 7px; 
+        } 
+ 
+        .footer-bottom { 
+            min-height: 50px; 
+ 
+            display: flex; 
+ 
+            align-items: center; 
+ 
+            justify-content: center; 
+ 
+            background: #090d10; 
+ 
+            color: #60686d; 
+ 
+            font-size: 9px; 
+ 
+            text-align: center; 
+ 
+            padding: 15px; 
+        } 
+ 
+ 
+        /* ========================================================= 
+           MOBILE 
+        ========================================================= */ 
+ 
+        .mobile-nav { 
+            display: none; 
+        } 
+ 
+        @media (max-width: 1100px) { 
+ 
+            .header-social { 
+                display: none; 
+            } 
+ 
+            .desktop-nav { 
+                gap: 22px; 
+            } 
+ 
+            .hero-panel { 
+                right: 4%; 
+            } 
+ 
+            .energy-flow { 
+                grid-template-columns: repeat(2,1fr); 
+            } 
+ 
+            .performance-container { 
+                gap: 45px; 
+            } 
+ 
+        } 
+ 
+ 
+        @media (max-width: 767px) { 
+
+    .body {
+        padding-top: 72px;
+    }
+
+    .header {
+        height: 72px;
+    }
+
+ 
+            .top-bar { 
+                display: none; 
+            } 
+ 
+            header { 
+                height: 72px; 
+            } 
+ 
+            .logo img { 
+                width: 105px; 
+            } 
+ 
+            .desktop-nav { 
+                display: none; 
+            } 
+ 
+            .menu-toggle { 
+                display: flex; 
+ 
+                align-items: center; 
+                justify-content: center; 
+                 
+            } 
+ 
+ 
+            /* MOBILE NAV */ 
+ 
+            .mobile-nav { 
+                display: flex; 
+ 
+                position: absolute; 
+ 
+                left: 0; 
+                top: 72px; 
+ 
+                width: 100%; 
+ 
+                padding: 8px 5% 18px; 
+ 
+                flex-direction: column; 
+ 
+                background: rgba(13,21,28,.98); 
+ 
+                opacity: 0; 
+                visibility: hidden; 
+ 
+                transform: translateY(-10px); 
+ 
+                transition: .3s ease; 
+            } 
+ 
+            .mobile-nav.active { 
+                opacity: 1; 
+                visibility: visible; 
+ 
+                transform: translateY(0); 
+            } 
+ 
+            .mobile-nav > a, 
+            .mobile-products-btn { 
+                min-height: 45px; 
+ 
+                display: flex; 
+                align-items: center; 
+                justify-content: space-between; 
+ 
+                color: #fff; 
+ 
+                font-size: 11px; 
+ 
+                border-bottom: 1px solid rgba(255,255,255,.08); 
+            } 
+ 
+            .mobile-products-btn { 
+                cursor: pointer; 
+            } 
+ 
+            .mobile-products-btn i { 
+                transition: .3s ease; 
+            } 
+ 
+            .mobile-products-btn.open i { 
+                transform: rotate(180deg); 
+            } 
+ 
+            .mobile-products-menu { 
+                display: none; 
+ 
+                padding-left: 15px; 
+            } 
+ 
+            .mobile-products-menu.active { 
+                display: block; 
+            } 
+ 
+            .mobile-products-menu a { 
+                display: block; 
+ 
+                padding: 12px 0; 
+ 
+                color: #9ba3a8; 
+ 
+                font-size: 10px; 
+            } 
+ 
+            .mobile-products-menu a:hover { 
+                color: var(--green); 
+            } 
+ 
+ 
+            /* HERO */ 
+ 
+            .hero { 
+                min-height: 650px; 
+ 
+                align-items: flex-start; 
+                padding-top: 100px; 
+            } 
+ 
+            .hero-content { 
+                width: 90%; 
+            } 
+ 
+            .hero h1 { 
+                font-size: 48px; 
+            } 
+ 
+            .hero p { 
+                font-size: 11px; 
+            } 
+ 
+            .hero-buttons { 
+                flex-wrap: wrap; 
+            } 
+ 
+            .hero-panel { 
+                width: 210px; 
+ 
+                right: 7%; 
+ 
+                bottom: 25px; 
+ 
+                padding: 10px; 
+            } 
+ 
+            .panel-image img { 
+                height: 115px; 
+            } 
+ 
+            .panel-info strong { 
+                font-size: 10px; 
+            } 
+ 
+ 
+            /* STATS */ 
+ 
+            .stats { 
+                grid-template-columns: repeat(2,1fr); 
+ 
+                margin-top: -35px; 
+            } 
+ 
+            .stat { 
+                border-bottom: 1px solid #eee; 
+            } 
+ 
+            .stat:nth-child(2) { 
+                border-right: none; 
+            } 
+ 
+            .stat:nth-child(3), 
+            .stat:nth-child(4) { 
+                border-bottom: none; 
+            } 
+ 
+ 
+            /* INTRO */ 
+ 
+            .intro { 
+                padding: 75px 0; 
+            } 
+ 
+            .intro-grid { 
+                grid-template-columns: 1fr; 
+ 
+                gap: 45px; 
+            } 
+ 
+            .intro-image img { 
+                height: 330px; 
+            } 
+ 
+            .image-tag { 
+                right: 12px; 
+            } 
+ 
+ 
+            /* ENERGY */ 
+ 
+            .energy { 
+                padding: 75px 0; 
+            } 
+ 
+            .energy-flow { 
+                grid-template-columns: 1fr; 
+            } 
+ 
+            .energy-card { 
+                min-height: auto; 
+            } 
+ 
+ 
+            /* PERFORMANCE */ 
+ 
+            .performance { 
+                padding: 75px 0; 
+            } 
+ 
+            .performance-container { 
+                grid-template-columns: 1fr; 
+ 
+                gap: 40px; 
+            } 
+ 
+            .performance-image { 
+                order: 1; 
+            } 
+ 
+            .performance-content { 
+                order: 2; 
+            } 
+ 
+            .performance-image img { 
+                height: 300px; 
+            } 
+ 
+ 
+            /* FOOTER */ 
+ 
+            .footer-grid { 
+                grid-template-columns: 1fr; 
+ 
+                gap: 32px; 
+            } 
+ 
+        } 
+ 
+ 
+        @media (max-width: 430px) { 
+ 
+        .menu-toggle { 
+        width: 38px; 
+        height: 38px; 
+        flex-basis: 38px; 
+        
+         
+    } 
+ 
+ 
+            .logo img { 
+                width: 95px; 
+            } 
+ 
+            .hero { 
+                min-height: 620px; 
+            } 
+ 
+            .hero h1 { 
+                font-size: 39px; 
+            } 
+ 
+            .hero-panel { 
+                width: 190px; 
+ 
+                right: 5%; 
+ 
+                bottom: 20px; 
+            } 
+ 
+            .stats { 
+                width: 90%; 
+            } 
+ 
+            .stat { 
+                padding: 22px 10px; 
+            } 
+ 
+            .stat strong { 
+                font-size: 21px; 
+            } 
+ 
+            .intro { 
+                padding: 60px 0; 
+            } 
+ 
+            .intro-image img { 
+                height: 270px; 
+            } 
+ 
+            .energy-card { 
+                padding: 25px 20px; 
+            } 
+ 
+            .performance-image img { 
+                height: 250px; 
+            } 
+ 
+        } 
+ 
+ 
+        @media (max-width: 360px) { 
+ 
+            .hero h1 { 
+                font-size: 34px; 
+            } 
+ 
+            .hero-panel { 
+                width: 175px; 
+            } 
+ 
+            .hero-btn { 
+                padding: 12px 16px; 
+            } 
+ 
+        } 
+ 
+ 
+        /* ========================================================= 
+           LARGE SCREEN 
+        ========================================================= */ 
+ 
+        @media (min-width: 1600px) { 
+ 
+            .nav-container, 
+            .hero-content, 
+            .intro, 
+            .energy-container, 
+            .footer-container { 
+                max-width: 1350px; 
+            } 
+ 
+            .hero { 
+                min-height: 720px; 
+            } 
+ 
+            .hero-panel { 
+                width: 320px; 
+            } 
+ 
+            .panel-image img { 
+                height: 200px; 
+            } 
+ 
+        } 
+ 
+ 
+        /* ========================================================= 
+           REDUCED MOTION 
+        ========================================================= */ 
+ 
+        @media (prefers-reduced-motion: reduce) { 
+ 
+            *, 
+            *::before, 
+            *::after { 
+                animation-duration: .01ms !important; 
+                animation-iteration-count: 1 !important; 
+                transition-duration: .01ms !important; 
+                scroll-behavior: auto !important; 
+            } 
+ 
+            .reveal, 
+            .reveal-left, 
+            .reveal-right { 
+                opacity: 1; 
+                transform: none; 
+            } 
+ 
+        } 
+ 
+    </style> 
+ 
+<style id="responsive-final-fix"> 
+@media (max-width: 767px){ 
+  html,body{width:100%;max-width:100%;overflow-x:hidden;} 
+  header{height:72px;} 
+  .nav-container{width:92%;height:72px;justify-content:flex-start;gap:12px;position:relative;} 
+  .logo{display:flex;align-items:center;order:0;margin:0;} 
+  .logo img{width:105px;} 
+  .menu-toggle{display:flex!important;align-items:center;justify-content:center;order:-1;flex:0 0 40px;width:40px;height:40px;margin:0!important;position:relative;left:0;right:auto;} 
+  .desktop-nav{display:none!important;} 
+  .mobile-nav{left:0;right:0;top:72px;width:100%;max-height:calc(100vh - 72px);overflow-y:auto;z-index:999;} 
+ 
+  .hero{min-height:760px;padding:82px 0 250px;display:block;} 
+  .hero-content{width:92%;margin:0 auto;position:relative;z-index:2;} 
+  .hero h1{max-width:100%;font-size:48px;line-height:1.03;} 
+  .hero p{max-width:100%;font-size:11px;line-height:1.9;} 
+  .hero-buttons{flex-wrap:wrap;gap:10px;} 
+ 
+  /* floating solar panel: raised so it never touches stats */ 
+  .hero-panel{width:210px;right:5%;bottom:75px;padding:10px;z-index:3;} 
+  .panel-image img{height:115px;} 
+  .panel-info{margin-top:10px;} 
+  .panel-info span{font-size:8px;} 
+  .panel-info strong{font-size:10px;} 
+ 
+  .stats{width:92%;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:-28px;} 
+  .stat{min-width:0;padding:22px 8px;} 
+  .intro{width:92%;padding:65px 0;} 
+  .intro-grid{width:100%;grid-template-columns:1fr;gap:42px;} 
+  .intro-image img{height:clamp(270px,72vw,360px);} 
+  .image-tag{right:8px;bottom:18px;padding:11px 14px;} 
+  .energy{padding:70px 0;} 
+  .energy-container{width:92%;} 
+  .energy-flow{grid-template-columns:1fr;gap:15px;} 
+  .energy-card{width:100%;min-height:0;} 
+  .performance{padding:70px 0;} 
+  .performance-container{width:92%;grid-template-columns:1fr;gap:38px;} 
+  .performance-image{order:1;} 
+  .performance-content{order:2;} 
+  .performance-image img{height:clamp(250px,65vw,330px);} 
+  .cta{padding:70px 20px;} 
+  .footer-container{width:92%;} 
+  .footer-grid{grid-template-columns:1fr;gap:30px;} 
+} 
+ 
+@media (max-width:430px){ 
+  .nav-container{width:94%;gap:10px;} 
+  .menu-toggle{width:38px;height:38px;flex-basis:38px; position:relative;left:312px;top:-50px;} 
+  .logo img{width:95px;} 
+  .hero{min-height:735px;padding-top:78px;padding-bottom:235px;} 
+  .hero h1{font-size:39px;} 
+  .hero-panel{width:190px;right:5%;bottom:70px;} 
+  .panel-image img{height:105px;} 
+  .stats,.intro,.energy-container,.performance-container,.footer-container{width:94%;} 
+  .intro{padding:58px 0;} 
+  .intro-image img{height:270px;} 
+} 
+ 
+@media (max-width:360px){ 
+  .nav-container{width:95%;} 
+  .menu-toggle{width:36px;height:36px;flex-basis:36px;font-size:14px;} 
+  .logo img{width:90px;} 
+  .hero{min-height:710px;padding-bottom:225px;} 
+  .hero h1{font-size:34px;} 
+  .hero-panel{width:175px;bottom:65px;} 
+  .panel-image img{height:95px;} 
+} 
+</style> 
+ 
+<style id="font-size-update"> 
+/* Slightly larger, more readable typography */ 
+.hero-content .eyebrow, 
+.hero-content .hero-kicker, 
+.hero-content .small-text { 
+    font-size: 13px !important; 
+} 
+ 
+.hero-content p { 
+    font-size: 16px !important; 
+    line-height: 1.7 !important; 
+} 
+ 
+.hero-content .hero-btn, 
+.hero-content a.btn, 
+.hero-buttons a { 
+    font-size: 12px !important; 
+} 
+ 
+.panel-info span { 
+    font-size: 10px !important; 
+} 
+ 
+.panel-info strong { 
+    font-size: 14px !important; 
+} 
+ 
+.stat-item strong { 
+    font-size: 27px !important; 
+} 
+ 
+.stat-item span, 
+.stats-strip .stat-label { 
+    font-size: 11px !important; 
+} 
+ 
+.section-label, 
+.section-tag, 
+.intro-label { 
+    font-size: 12px !important; 
+} 
+ 
+.intro p, 
+.energy-section > .container > p, 
+.performance-section > .container > p, 
+.cta-section p { 
+    font-size: 15px !important; 
+    line-height: 1.8 !important; 
+} 
+ 
+.energy-card h3 { 
+    font-size: 17px !important; 
+} 
+ 
+.energy-card p { 
+    font-size: 13px !important; 
+    line-height: 1.7 !important; 
+} 
+ 
+.performance-section .meter-head, 
+.performance-section .meter-label, 
+.performance-section .meter-value { 
+    font-size: 12px !important; 
+} 
+ 
+.footer-brand p, 
+.footer h3, 
+.footer a, 
+.footer p, 
+.footer-bottom, 
+.footer-links a { 
+    font-size: 11px !important; 
+} 
+ 
+.cta-section h2 { 
+    line-height: 1.15 !important; 
+} 
+ 
+/* Keep the text comfortably sized on smaller screens */ 
+@media (max-width: 767px) { 
+    .hero-content .eyebrow, 
+    .hero-content .hero-kicker, 
+    .hero-content .small-text { 
+        font-size: 12px !important; 
+    } 
+ 
+    .hero-content p { 
+        font-size: 14px !important; 
+        line-height: 1.65 !important; 
+    } 
+ 
+    .hero-content .hero-btn, 
+    .hero-content a.btn, 
+    .hero-buttons a { 
+        font-size: 11px !important; 
+    } 
+ 
+    .panel-info span { 
+        font-size: 9px !important; 
+    } 
+ 
+    .panel-info strong { 
+        font-size: 12px !important; 
+    } 
+ 
+    .stat-item strong { 
+        font-size: 23px !important; 
+    } 
+ 
+    .stat-item span, 
+    .stats-strip .stat-label { 
+        font-size: 10px !important; 
+    } 
+ 
+    .section-label, 
+    .section-tag, 
+    .intro-label { 
+        font-size: 11px !important; 
+    } 
+ 
+    .intro p, 
+    .energy-section > .container > p, 
+    .performance-section > .container > p, 
+    .cta-section p { 
+        font-size: 14px !important; 
+        line-height: 1.7 !important; 
+    } 
+ 
+    .energy-card h3 { 
+        font-size: 16px !important; 
+    } 
+ 
+    .energy-card p { 
+        font-size: 12px !important; 
+    } 
+ 
+    .performance-section .meter-head, 
+    .performance-section .meter-label, 
+    .performance-section .meter-value { 
+        font-size: 11px !important; 
+    } 
+ 
+    .footer-brand p, 
+    .footer h3, 
+    .footer a, 
+    .footer p, 
+    .footer-bottom, 
+    .footer-links a { 
+        font-size: 10px !important; 
+    } 
+} 
+ 
+@media (max-width: 430px) { 
+    .hero-content p { 
+        font-size: 13px !important; 
+    } 
+ 
+    .intro p, 
+    .energy-section > .container > p, 
+    .performance-section > .container > p, 
+    .cta-section p { 
+        font-size: 13px !important; 
+    } 
+ 
+    .energy-card p { 
+        font-size: 11.5px !important; 
+    } 
+ 
+    .footer-brand p, 
+    .footer h3, 
+    .footer a, 
+    .footer p, 
+    .footer-bottom, 
+    .footer-links a { 
+        font-size: 10px !important; 
+    } 
+} 
+</style> 
+ 
+
+<style id="footer-about-style-and-section-animations">
+/* Gentle scroll animation for the main page sections */
+.section-reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity .75s ease, transform .75s ease;
+}
+.section-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Refined footer styling */
+footer {
+    position: relative;
+    padding-top: 68px;
+    background: linear-gradient(145deg, #101820 0%, #0b1218 55%, #0d151c 100%);
+    color: #fff;
+    overflow: hidden;
+}
+footer::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #4a6aac, #9dc664, #4a6aac);
+}
+.footer-container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr 1.15fr 1.15fr;
+    gap: 42px;
+    padding-bottom: 48px;
+}
+.footer-logo {
+    width: 140px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+    transition: transform .35s ease;
+}
+.footer-brand:hover .footer-logo {
+    transform: translateY(-3px);
+}
+footer .footer-brand p {
+    max-width: 290px;
+    color: #a0a8ad;
+    font-size: 13px !important;
+    line-height: 1.9;
+}
+.footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+.footer-social a {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(157,198,100,.22);
+    border-radius: 50%;
+    background: rgba(255,255,255,.045);
+    color: #b9c2c6;
+    font-size: 13px;
+    transition: color .3s ease, background .3s ease, border-color .3s ease, transform .3s ease;
+}
+.footer-social a:hover {
+    background: #9dc664;
+    border-color: #9dc664;
+    color: #101820;
+    transform: translateY(-4px);
+}
+.footer-column h3 {
+    position: relative;
+    display: inline-block;
+    margin: 5px 0 25px;
+    padding-bottom: 12px;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px !important;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+}
+.footer-column h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 32px;
+    height: 2px;
+    border-radius: 2px;
+    background: #9dc664;
+}
+.footer-column a {
+    display: block;
+    width: fit-content;
+    margin-bottom: 13px;
+    color: #a0a8ad;
+    font-size: 13px !important;
+    line-height: 1.6;
+    transition: color .3s ease, transform .3s ease;
+}
+.footer-column a:hover {
+    color: #9dc664;
+    padding-left: 0;
+    transform: translateX(5px);
+}
+.footer-column p {
+    margin-bottom: 12px;
+    color: #a0a8ad;
+    font-size: 13px !important;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+}
+.footer-bottom {
+    min-height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 5%;
+    background: rgba(0,0,0,.28);
+    border-top: 1px solid rgba(255,255,255,.07);
+    color: #879197;
+    font-size: 12px !important;
+    line-height: 1.7;
+    text-align: center;
+}
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 38px 32px;
+    }
+}
+@media (max-width: 767px) {
+    footer {
+        padding-top: 52px;
+    }
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px 24px;
+        padding-bottom: 36px;
+    }
+    .footer-logo {
+        width: 125px;
+    }
+    footer .footer-brand p,
+    .footer-column a,
+    .footer-column p {
+        font-size: 12px !important;
+    }
+    .footer-column h3 {
+        margin-bottom: 20px;
+        font-size: 12px !important;
+    }
+}
+@media (max-width: 480px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+    footer .footer-brand p {
+        max-width: 100%;
+    }
+    .footer-bottom {
+        font-size: 11px !important;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .section-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+</style>
+
+
+<style id="section-animation-stagger">
+.energy-flow .energy-card:nth-child(2) { transition-delay: .08s; }
+.energy-flow .energy-card:nth-child(3) { transition-delay: .16s; }
+.energy-flow .energy-card:nth-child(4) { transition-delay: .24s; }
+@media (prefers-reduced-motion: reduce) {
+    .energy-flow .energy-card { transition-delay: 0s !important; }
+}
+</style>
+
+</head> 
+ 
+ 
+<body> 
+ 
+ 
+    <!-- ========================================================= 
+         HEADER 
+    ========================================================= --> 
+ 
+    <header> 
+ 
+        <div class="nav-container"> 
+ 
+            <a href="index.html" class="logo"> 
+                <img 
+                    src="./images/Anmegh - Logo --1.png" 
+                    alt="Solar Energy"> 
+            </a> 
+ 
+ 
+            <nav class="desktop-nav"> 
+ 
+                <a href="index.html">HOME</a> 
+ 
+                <a href="about.html">ABOUT</a> 
+ 
+ 
+                <div class="nav-dropdown"> 
+ 
+                    <a href="products.html" class="products-link"> 
+ 
+                        PRODUCTS 
+ 
+                        <span class="dropdown-arrow">▼</span> 
+ 
+                    </a> 
+ 
+                    <div class="dropdown-menu"> 
+ 
+                        <a href="solarpanel.html"> 
+                            SOLAR PANEL 
+                        </a> 
+ 
+                        <a href="waterpurifier.html"> 
+                            SOLAR WATER PURIFIER 
+                        </a> 
+ 
+                    </div> 
+ 
+                </div> 
+ 
+ 
+                <a href="gallery.html"> 
+                    GALLERY 
+                </a> 
+ 
+                <a href="contact.html"> 
+                    CONTACT 
+                </a> 
+ 
+            </nav> 
+ 
+ 
+            <!-- <div class="header-social"> 
+ 
+                <a href="#"> 
+                    <i class="fa-brands fa-facebook-f"></i> 
+                </a> 
+ 
+                <a href="#"> 
+                    <i class="fa-brands fa-instagram"></i> 
+                </a> 
+ 
+                <a href="#"> 
+                    <i class="fa-brands fa-x-twitter"></i> 
+                </a> 
+ 
+                <a href="#"> 
+                    <i class="fa-brands fa-youtube"></i> 
+                </a> --> 
+ 
+            </div> 
+ 
+ 
+            <button class="menu-toggle" id="menuToggle"> 
+                <i class="fa-solid fa-bars"></i> 
+            </button> 
+ 
+        </div> 
+ 
+ 
+        <!-- MOBILE NAV --> 
+ 
+        <nav class="mobile-nav" id="mobileNav"> 
+ 
+            <a href="index.html">HOME</a> 
+ 
+            <a href="about.html">ABOUT</a> 
+ 
+ 
+            <div class="mobile-products"> 
+ 
+                <div class="mobile-products-btn" 
+                    id="mobileProductsBtn"> 
+ 
+                    <span>PRODUCTS</span> 
+ 
+                    <i class="fa-solid fa-chevron-down"></i> 
+ 
+                </div> 
+ 
+                <div class="mobile-products-menu" 
+                    id="mobileProductsMenu"> 
+ 
+                    <a href="solarpanel.html"> 
+                        SOLAR PANEL 
+                    </a> 
+ 
+                    <a href="waterpurifier.html"> 
+                        SOLAR WATER PURIFIER 
+                    </a> 
+ 
+                </div> 
+ 
+            </div> 
+ 
+ 
+            <a href="gallery.html"> 
+                GALLERY 
+            </a> 
+ 
+            <a href="contact.html"> 
+                CONTACT 
+            </a> 
+ 
+        </nav> 
+ 
+    </header> 
+ 
+ 
+    <!-- ========================================================= 
+         HERO 
+    ========================================================= --> 
+ 
+    <section class="hero"> 
+ 
+        <div class="hero-content"> 
+ 
+            <div class="hero-small"> 
+                SOLAR ENERGY / SOLAR PANEL 
+            </div> 
+ 
+            <h1> 
+                Turn Sunlight 
+                Into <span>Power.</span> 
+            </h1> 
+ 
+            <p> 
+                Smart solar panel solutions designed to 
+                transform clean sunlight into reliable energy 
+                for modern homes and businesses. 
+            </p> 
+ 
+            <div class="hero-buttons"> 
+ 
+                <a href="contact.html" class="hero-btn"> 
+                    GET A QUOTE 
+                    <i class="fa-solid fa-arrow-right"></i> 
+                </a> 
+ 
+                <a href="#energy" class="hero-btn hero-btn-outline"> 
+                    EXPLORE 
+                    <i class="fa-solid fa-chevron-down"></i> 
+                </a> 
+ 
+            </div> 
+ 
+        </div> 
+ 
+ 
+        <!-- FLOATING CARD --> 
+ 
+        <div class="hero-panel"> 
+ 
+            <div class="panel-image"> 
+ 
+                <img 
+                    src="images/solar3.jpg" 
+                    alt="Solar Panel"> 
+ 
+            </div> 
+ 
+            <div class="panel-info"> 
+ 
+                <div> 
+                    <span>ENERGY SOURCE</span> 
+                    <strong>Solar</strong> 
+                </div> 
+ 
+                <div> 
+                    <span>TYPE</span> 
+                    <strong>Renewable</strong> 
+                </div> 
+ 
+            </div> 
+ 
+        </div> 
+ 
+    </section> 
+ 
+ 
+    <!-- ========================================================= 
+         STATS 
+    ========================================================= --> 
+ 
+    <section class="stats reveal"> 
+ 
+        <div class="stat"> 
+ 
+            <strong>100%</strong> 
+ 
+            <span>Clean Energy</span> 
+ 
+        </div> 
+ 
+        <div class="stat"> 
+ 
+            <strong>24/7</strong> 
+ 
+            <span>Energy Potential</span> 
+ 
+        </div> 
+ 
+        <div class="stat"> 
+ 
+            <strong>∞</strong> 
+ 
+            <span>Renewable Source</span> 
+ 
+        </div> 
+ 
+        <div class="stat"> 
+ 
+            <strong>0%</strong> 
+ 
+            <span>Fuel Consumption</span> 
+ 
+        </div> 
+ 
+    </section> 
+ 
+ 
+    <!-- ========================================================= 
+         INTRO 
+    ========================================================= --> 
+ 
+    <section class="intro"> 
+ 
+        <div class="intro-grid"> 
+ 
+            <div class="intro-image reveal-left"> 
+ 
+                <img 
+                    src="images/solar2.jpg" 
+                    alt="Solar Energy"> 
+ 
+                <div class="image-tag"> 
+ 
+                    <strong>01</strong> 
+ 
+                    <span>SMART SOLAR SOLUTION</span> 
+ 
+                </div> 
+ 
+            </div> 
+ 
+ 
+            <div class="reveal-right"> 
+ 
+                <div class="section-label"> 
+                    THE POWER OF SUNLIGHT 
+                </div> 
+ 
+                <h2> 
+                    Energy that starts 
+                    with <span>the sun.</span> 
+                </h2> 
+ 
+                <p> 
+                    Solar panels capture sunlight and convert 
+                    it into usable electrical energy. It is a 
+                    cleaner and smarter way to generate power 
+                    for your everyday needs. 
+                </p> 
+ 
+                <p> 
+                    Our solar solutions are designed to combine 
+                    modern technology with practical energy 
+                    requirements, helping you make better use 
+                    of renewable energy. 
+                </p> 
+ 
+                <p> 
+                    From residential properties to commercial 
+                    spaces, solar power can become an important 
+                    part of a more sustainable energy future. 
+                </p> 
+ 
+                <a href="contact.html" class="hero-btn" 
+                    style="margin-top:12px;"> 
+ 
+                    TALK TO US 
+ 
+                    <i class="fa-solid fa-arrow-right"></i> 
+ 
+                </a> 
+ 
+            </div> 
+ 
+        </div> 
+ 
+    </section> 
+ 
+ 
+    <!-- ========================================================= 
+         ENERGY FLOW 
+    ========================================================= --> 
+ 
+    <section class="energy" id="energy"> 
+ 
+        <div class="energy-container"> 
+ 
+            <div class="energy-heading reveal"> 
+ 
+                <div class="section-label"> 
+                    HOW IT WORKS 
+                </div> 
+ 
+                <h2> 
+                    From sunlight to 
+                    <span>usable energy.</span> 
+                </h2> 
+ 
+                <p> 
+                    Solar energy follows a simple process. 
+                    Sunlight is captured, converted and used 
+                    to power the things that matter. 
+                </p> 
+ 
+            </div> 
+ 
+ 
+            <div class="energy-flow"> 
+ 
+                <div class="energy-card reveal"> 
+ 
+                    <div class="energy-number"> 
+                        01 
+                    </div> 
+ 
+                    <i class="fa-solid fa-sun"></i> 
+ 
+                    <h3> 
+                        Sunlight 
+                    </h3> 
+ 
+                    <p> 
+                        Solar panels receive sunlight from 
+                        the sun throughout the day. 
+                    </p> 
+ 
+                </div> 
+ 
+ 
+                <div class="energy-card reveal"> 
+ 
+                    <div class="energy-number"> 
+                        02 
+                    </div> 
+ 
+                    <i class="fa-solid fa-solar-panel"></i> 
+ 
+                    <h3> 
+                        Capture 
+                    </h3> 
+ 
+                    <p> 
+                        Solar cells capture the available 
+                        solar energy. 
+                    </p> 
+ 
+                </div> 
+ 
+ 
+                <div class="energy-card reveal"> 
+ 
+                    <div class="energy-number"> 
+                        03 
+                    </div> 
+ 
+                    <i class="fa-solid fa-bolt"></i> 
+ 
+                    <h3> 
+                        Conversion 
+                    </h3> 
+ 
+                    <p> 
+                        The captured energy is converted 
+                        into usable electrical power. 
+                    </p> 
+ 
+                </div> 
+ 
+ 
+                <div class="energy-card reveal"> 
+ 
+                    <div class="energy-number"> 
+                        04 
+                    </div> 
+ 
+                    <i class="fa-solid fa-house"></i> 
+ 
+                    <h3> 
+                        Power 
+                    </h3> 
+ 
+                    <p> 
+                        Generated electricity can be used 
+                        for your home or business. 
+                    </p> 
+ 
+                </div> 
+ 
+            </div> 
+ 
+        </div> 
+ 
+    </section> 
+ 
+ 
+    <!-- ========================================================= 
+         PERFORMANCE 
+    ========================================================= --> 
+ 
+    <section class="performance"> 
+ 
+        <div class="performance-container"> 
+ 
+            <div class="performance-image reveal-left"> 
+ 
+                <img 
+                    src="images/solar5.jpg" 
+                    alt="Solar Installation"> 
+ 
+            </div> 
+ 
+ 
+            <div class="performance-content reveal-right"> 
+ 
+                <div class="section-label"> 
+                    WHY SOLAR PANEL 
+                </div> 
+ 
+                <h2> 
+                    Designed for a 
+                    cleaner tomorrow. 
+                </h2> 
+ 
+                <p> 
+                    Solar technology offers a practical way 
+                    to reduce dependence on conventional 
+                    energy sources while making use of 
+                    renewable sunlight. 
+                </p> 
+ 
+ 
+                <div class="meter"> 
+ 
+                    <div class="meter-head"> 
+ 
+                        <span> 
+                            Renewable Energy 
+                        </span> 
+ 
+                        <span>100%</span> 
+ 
+                    </div> 
+ 
+                    <div class="meter-track"> 
+ 
+                        <div 
+                            class="meter-fill" 
+                            style="--width:100%;"> 
+                        </div> 
+ 
+                    </div> 
+ 
+                </div> 
+ 
+ 
+                <div class="meter"> 
+ 
+                    <div class="meter-head"> 
+ 
+                        <span> 
+                            Clean Energy Potential 
+                        </span> 
+ 
+                        <span>95%</span> 
+ 
+                    </div> 
+ 
+                    <div class="meter-track"> 
+ 
+                        <div 
+                            class="meter-fill" 
+                            style="--width:95%;"> 
+                        </div> 
+ 
+                    </div> 
+ 
+                </div> 
+ 
+ 
+                <div class="meter"> 
+ 
+                    <div class="meter-head"> 
+ 
+                        <span> 
+                            Sustainable Choice 
+                        </span> 
+ 
+                        <span>98%</span> 
+ 
+                    </div> 
+ 
+                    <div class="meter-track"> 
+ 
+                        <div 
+                            class="meter-fill" 
+                            style="--width:98%;"> 
+                        </div> 
+ 
+                    </div> 
+ 
+                </div> 
+ 
+            </div> 
+ 
+        </div> 
+ 
+    </section> 
+ 
+ 
+    <!-- ========================================================= 
+         CTA 
+    ========================================================= --> 
+ 
+    <section class="cta"> 
+ 
+        <div class="reveal"> 
+ 
+            <div class="section-label"> 
+                START YOUR SOLAR JOURNEY 
+            </div> 
+ 
+            <h2> 
+                Let the sun power 
+                your future. 
+            </h2> 
+ 
+            <p> 
+                Have a solar requirement? Get in touch with 
+                us and explore a solution designed around 
+                your energy needs. 
+            </p> 
+ 
+            <a href="contact.html" class="hero-btn"> 
+ 
+                GET IN TOUCH 
+ 
+                <i class="fa-solid fa-arrow-right"></i> 
+ 
+            </a> 
+ 
+        </div> 
+ 
+    </section> 
+ 
+ 
+    <!-- ========================================================= 
+         FOOTER 
+    ========================================================= --> 
+ 
+    <footer> 
+ 
+        <div class="footer-container"> 
+ 
+            <div class="footer-grid"> 
+ 
+ 
+                <div class="footer-brand"> 
+ 
+                    <img 
+                        src="./images/Anmegh - Logo --1.png" 
+                        class="footer-logo" 
+                        alt="Logo"> 
+ 
+                    <p> 
+                        Solar energy and water purification 
+                        solutions for a cleaner and more 
+                        sustainable future. 
+                    </p> 
+ 
+                    <div class="footer-social"> 
+ 
+                        <a href="#"> 
+                            <i class="fa-brands fa-facebook-f"></i> 
+                        </a> 
+ 
+                        <a href="#"> 
+                            <i class="fa-brands fa-instagram"></i> 
+                        </a> 
+ 
+                        <a href="#"> 
+                            <i class="fa-brands fa-x-twitter"></i> 
+                        </a> 
+ 
+                        <a href="#"> 
+                            <i class="fa-brands fa-youtube"></i> 
+                        </a> 
+ 
+                    </div> 
+ 
+                </div> 
+ 
+ 
+                <div class="footer-column"> 
+ 
+                    <h3>COMPANY</h3> 
+ 
+                    <a href="index.html">Home</a> 
+ 
+                    <a href="about.html">About Us</a> 
+ 
+                    <a href="gallery.html">Gallery</a> 
+ 
+                    <a href="contact.html">Contact</a> 
+ 
+                </div> 
+ 
+ 
+                <div class="footer-column"> 
+ 
+                    <h3>PRODUCTS</h3> 
+ 
+                    <a href="solarpanel.html"> 
+                        Solar Panel 
+                    </a> 
+ 
+                    <a href="waterpurifier.html"> 
+                        Solar Water Purifier 
+                    </a> 
+ 
+                </div> 
+ 
+ 
+                <div class="footer-column"> 
+ 
+                    <h3>CONTACT</h3> 
+ 
+                    <p>Kerala, India</p> 
+ 
+                    <p>+91 98765 43210</p> 
+ 
+                    <p>info@example.com</p> 
+ 
+                </div> 
+ 
+            </div> 
+ 
+        </div> 
+ 
+ 
+        <div class="footer-bottom"> 
+ 
+            Copyright © 2026 Solar Energy & Water Purifier. 
+            All Rights Reserved. 
+ 
+        </div> 
+ 
+    </footer> 
+ 
+ 
+    <!-- ========================================================= 
+         JAVASCRIPT 
+    ========================================================= --> 
+ 
+    <script> 
+ 
+        /* ===================================================== 
+           MOBILE MENU 
+        ===================================================== */ 
+ 
+        const menuToggle = 
+            document.getElementById("menuToggle"); 
+ 
+        const mobileNav = 
+            document.getElementById("mobileNav"); 
+ 
+        menuToggle.addEventListener("click", () => { 
+ 
+            mobileNav.classList.toggle("active"); 
+ 
+            const icon = 
+                menuToggle.querySelector("i"); 
+ 
+            if (mobileNav.classList.contains("active")) { 
+ 
+                icon.classList.remove("fa-bars"); 
+                icon.classList.add("fa-xmark"); 
+ 
+            } else { 
+                 
+ 
+                icon.classList.remove("fa-xmark"); 
+                icon.classList.add("fa-bars"); 
+ 
+            } 
+ 
+        }); 
+ 
+ 
+        /* ===================================================== 
+           MOBILE PRODUCTS 
+        ===================================================== */ 
+ 
+        const mobileProductsBtn = 
+            document.getElementById("mobileProductsBtn"); 
+ 
+        const mobileProductsMenu = 
+            document.getElementById("mobileProductsMenu"); 
+ 
+        mobileProductsBtn.addEventListener("click", () => { 
+ 
+            mobileProductsMenu.classList.toggle("active"); 
+ 
+            mobileProductsBtn.classList.toggle("open"); 
+ 
+        }); 
+ 
+ 
+        /* ===================================================== 
+           CLOSE MOBILE MENU 
+        ===================================================== */ 
+ 
+        document.querySelectorAll(".mobile-nav a") 
+            .forEach(link => { 
+ 
+                link.addEventListener("click", () => { 
+ 
+                    mobileNav.classList.remove("active"); 
+ 
+                    menuToggle 
+                        .querySelector("i") 
+                        .classList.remove("fa-xmark"); 
+ 
+                    menuToggle 
+                        .querySelector("i") 
+                        .classList.add("fa-bars"); 
+ 
+                }); 
+ 
+            }); 
+ 
+ 
+        /* ===================================================== 
+           SCROLL REVEAL 
+           Animation repeats whenever section enters viewport 
+        ===================================================== */ 
+ 
+        /* Add a gentle reveal to each main section as it enters the viewport.
+           The hero already has its own entrance animations. */
+        document.querySelectorAll(
+            ".stats, .intro, .energy, .performance, .cta, footer"
+        ).forEach(section => section.classList.add("section-reveal"));
+
+        const revealElements =
+            document.querySelectorAll(
+                ".reveal, .reveal-left, .reveal-right, .section-reveal"
+            ); 
+ 
+        const revealObserver = 
+            new IntersectionObserver( 
+                (entries) => { 
+ 
+                    entries.forEach(entry => { 
+ 
+                        if (entry.isIntersecting) { 
+ 
+                            entry.target.classList.add("active"); 
+ 
+                        } else { 
+ 
+                            entry.target.classList.remove("active"); 
+ 
+                        } 
+ 
+                    }); 
+ 
+                }, 
+                { 
+                    threshold: 0.15 
+                } 
+            ); 
+ 
+ 
+        revealElements.forEach(element => { 
+ 
+            revealObserver.observe(element); 
+ 
+        }); 
+ 
+ 
+        /* ===================================================== 
+           CLOSE MOBILE NAV WHEN RESIZED 
+        ===================================================== */ 
+ 
+        window.addEventListener("resize", () => { 
+ 
+            if (window.innerWidth > 767) { 
+ 
+                mobileNav.classList.remove("active"); 
+ 
+                menuToggle 
+                    .querySelector("i") 
+                    .classList.remove("fa-xmark"); 
+ 
+                menuToggle 
+                    .querySelector("i") 
+                    .classList.add("fa-bars"); 
+ 
+            } 
+ 
+        }); 
+ 
+    </script> 
+ 
+</body> 
+</html> 

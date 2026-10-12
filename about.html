@@ -1,0 +1,3162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | Solar Energy & Water Purifier</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #111820;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
+
+        :root {
+            --bg: #111820;
+            --bg-dark: #0d151c;
+            --bg-light: #17212a;
+            --card: #18232d;
+
+            --blue: #4a6aac;
+            --green: #9dc664;
+
+            --white: #ffffff;
+            --text: #e7ebef;
+            --muted: #9aa6b2;
+
+            --border: rgba(255, 255, 255, 0.10);
+            --transition: 0.4s cubic-bezier(.22, .61, .36, 1);
+        }
+
+
+        /* =========================================================
+           CUSTOM SCROLLBAR
+        ========================================================= */
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0d151c;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(
+                to bottom,
+                var(--blue),
+                var(--green)
+            );
+            border-radius: 10px;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        header {
+            width: 100%;
+            height: 82px;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+
+            background: rgba(13, 21, 28, 0.82);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid transparent;
+
+            transition:
+                height .4s ease,
+                background .4s ease,
+                border-color .4s ease,
+                box-shadow .4s ease;
+        }
+
+        header.scrolled {
+            height: 70px;
+            background: rgba(13, 21, 28, 0.96);
+            border-bottom-color: var(--border);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .20);
+        }
+
+        .nav-container {
+            width: min(1380px, 92%);
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo img {
+            width: 133px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 38px;
+            list-style: none;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links > li > a {
+            position: relative;
+
+            color: #dfe5e9;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+
+            padding: 30px 0;
+
+            transition: color .3s ease;
+        }
+
+        .nav-links > li > a::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: 21px;
+
+            width: 0;
+            height: 2px;
+
+            background: linear-gradient(
+                90deg,
+                var(--blue),
+                var(--green)
+            );
+
+            transition: width .35s ease;
+        }
+
+        .nav-links > li > a:hover,
+        .nav-links > li > a.active {
+            color: #ffffff;
+        }
+
+        .nav-links > li > a:hover::after,
+        .nav-links > li > a.active::after {
+            width: 100%;
+        }
+
+
+        /* =========================================================
+           DROPDOWN
+        ========================================================= */
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .arrow {
+            font-size: 9px;
+            transition: transform .3s ease;
+        }
+
+        .dropdown:hover .arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 65px;
+            left: 50%;
+
+            width: 235px;
+
+            transform:
+                translate(-50%, 15px)
+                scale(.96);
+
+            opacity: 0;
+            visibility: hidden;
+
+            padding: 10px;
+
+            background: rgba(17, 24, 32, .97);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+
+            box-shadow: 0 25px 70px rgba(0, 0, 0, .4);
+
+            transition:
+                opacity .3s ease,
+                transform .3s ease,
+                visibility .3s ease;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+
+            transform:
+                translate(-50%, 0)
+                scale(1);
+        }
+
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            padding: 14px 15px;
+
+            color: #cbd3da;
+
+            font-size: 13px;
+            font-weight: 500;
+
+            border-radius: 9px;
+
+            transition:
+                background .3s ease,
+                color .3s ease,
+                transform .3s ease;
+        }
+
+        .dropdown-menu a:hover {
+            color: #ffffff;
+            background: rgba(157, 198, 100, .09);
+            transform: translateX(5px);
+        }
+
+        .dropdown-menu span {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+
+            box-shadow: 0 0 12px rgba(157, 198, 100, .5);
+        }
+
+
+        /* =========================================================
+           MOBILE MENU
+        ========================================================= */
+
+        .menu-toggle {
+            display: none;
+
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            background: rgba(255,255,255,.04);
+
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            display: block;
+
+            width: 20px;
+            height: 2px;
+
+            margin: 4px auto;
+
+            background: #ffffff;
+
+            transition: .3s ease;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .about-hero {
+            min-height: 88vh;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            padding: 150px 0 100px;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 15% 35%,
+                    rgba(74,106,172,.17),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 85% 65%,
+                    rgba(157,198,100,.10),
+                    transparent 30%
+                ),
+                var(--bg-dark);
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+
+            opacity: .20;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 70px 70px;
+
+            mask-image: linear-gradient(
+                to bottom,
+                black,
+                transparent
+            );
+        }
+
+        .hero-glow {
+            position: absolute;
+
+            width: 450px;
+            height: 450px;
+
+            border-radius: 50%;
+
+            filter: blur(90px);
+
+            background: rgba(74,106,172,.12);
+
+            top: 15%;
+            right: -150px;
+
+            animation: floatingGlow 7s ease-in-out infinite;
+        }
+
+        @keyframes floatingGlow {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(35px);
+            }
+        }
+
+        .hero-container {
+            width: min(1380px, 92%);
+            margin: auto;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 22px;
+
+            color: var(--green);
+
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+
+            width: 32px;
+            height: 1px;
+
+            background: var(--green);
+        }
+
+        .hero-title {
+            font-family: "Montserrat", sans-serif;
+
+            font-size: clamp(45px, 7vw, 92px);
+            line-height: .98;
+            font-weight: 700;
+            letter-spacing: -4px;
+
+            max-width: 950px;
+        }
+
+        .hero-title span {
+            color: var(--green);
+        }
+
+        .hero-description {
+            max-width: 680px;
+
+            margin-top: 30px;
+
+            color: var(--muted);
+
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        .hero-line {
+            width: 100%;
+            height: 1px;
+
+            margin-top: 55px;
+
+            background: linear-gradient(
+                90deg,
+                rgba(157,198,100,.7),
+                rgba(74,106,172,.2),
+                transparent
+            );
+        }
+
+
+        /* =========================================================
+           GENERAL SECTION
+        ========================================================= */
+
+        section {
+            position: relative;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .container {
+            width: min(1380px, 92%);
+            margin: auto;
+        }
+
+        .section-heading {
+            max-width: 760px;
+            margin-bottom: 70px;
+        }
+
+        .section-label {
+            color: var(--green);
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            margin-bottom: 17px;
+        }
+
+        .section-title {
+            font-family: "Montserrat", sans-serif;
+
+            font-size: clamp(35px, 5vw, 62px);
+            line-height: 1.08;
+
+            letter-spacing: -2px;
+            font-weight: 600;
+        }
+
+        .section-description {
+            margin-top: 20px;
+
+            color: var(--muted);
+
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+
+        /* =========================================================
+           WHO WE ARE
+        ========================================================= */
+
+        .who-section {
+            background: var(--bg);
+        }
+
+        .who-grid {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                minmax(0, 1fr);
+
+            gap: 90px;
+
+            align-items: center;
+        }
+
+        .image-wrap {
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 4px;
+        }
+
+        .image-wrap img {
+            width: 100%;
+            height: 560px;
+
+            object-fit: cover;
+
+            filter: saturate(.8);
+
+            transition:
+                transform 1s cubic-bezier(.22,.61,.36,1),
+                filter .7s ease;
+        }
+
+        .image-wrap:hover img {
+            transform: scale(1.045);
+            filter: saturate(1);
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(74,106,172,.17),
+                    transparent 45%,
+                    rgba(157,198,100,.08)
+                );
+        }
+
+        .image-border {
+            position: absolute;
+
+            left: 22px;
+            right: 22px;
+            bottom: 22px;
+            top: 22px;
+
+            border: 1px solid rgba(255,255,255,.18);
+
+            pointer-events: none;
+        }
+
+        .who-content h3 {
+            font-family: "Montserrat", sans-serif;
+
+            font-size: clamp(30px, 4vw, 48px);
+            line-height: 1.15;
+
+            font-weight: 600;
+
+            margin-bottom: 25px;
+        }
+
+        .who-content h3 span {
+            color: var(--green);
+        }
+
+        .who-content p {
+            color: var(--muted);
+
+            font-size: 15px;
+            line-height: 1.95;
+
+            margin-bottom: 18px;
+        }
+
+        .text-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+
+            margin-top: 15px;
+
+            color: #ffffff;
+
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .text-link span {
+            transition: transform .3s ease;
+        }
+
+        .text-link:hover span {
+            transform: translateX(7px);
+        }
+
+
+        /* =========================================================
+           STATS
+        ========================================================= */
+
+        .stats-section {
+            padding: 0 0 120px;
+
+            background: var(--bg);
+        }
+
+        .stats-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stat {
+            padding: 45px 30px;
+
+            border-right: 1px solid var(--border);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-family: "Montserrat", sans-serif;
+
+            font-size: clamp(35px, 4vw, 55px);
+            font-weight: 600;
+
+            color: #ffffff;
+        }
+
+        .stat-number span {
+            color: var(--green);
+        }
+
+        .stat-title {
+            margin-top: 9px;
+
+            color: #ffffff;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            letter-spacing: .5px;
+        }
+
+        .stat-text {
+            margin-top: 8px;
+
+            color: var(--muted);
+
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================================================
+           MISSION / VISION
+        ========================================================= */
+
+        .mission-section {
+            background: var(--bg-dark);
+
+            overflow: hidden;
+        }
+
+        .mission-section::before {
+            content: "";
+
+            position: absolute;
+
+            width: 550px;
+            height: 550px;
+
+            left: -250px;
+            top: 20%;
+
+            border-radius: 50%;
+
+            background: rgba(74,106,172,.08);
+
+            filter: blur(90px);
+        }
+
+        .mission-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 24px;
+
+            position: relative;
+            z-index: 1;
+        }
+
+        .mission-card {
+            position: relative;
+
+            padding: 55px 48px;
+
+            min-height: 300px;
+
+            border: 1px solid var(--border);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.045),
+                    rgba(255,255,255,.015)
+                );
+
+            overflow: hidden;
+
+            transition:
+                transform .5s ease,
+                border-color .5s ease,
+                background .5s ease;
+        }
+
+        .mission-card::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 0;
+
+            width: 0;
+            height: 2px;
+
+            background: linear-gradient(
+                90deg,
+                var(--blue),
+                var(--green)
+            );
+
+            transition: width .6s ease;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-8px);
+
+            border-color: rgba(157,198,100,.25);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(157,198,100,.07),
+                    rgba(255,255,255,.015)
+                );
+        }
+
+        .mission-card:hover::before {
+            width: 100%;
+        }
+
+        .card-number {
+            color: var(--green);
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 55px;
+        }
+
+        .mission-card h3 {
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 28px;
+            font-weight: 600;
+
+            margin-bottom: 17px;
+        }
+
+        .mission-card p {
+            color: var(--muted);
+
+            font-size: 14px;
+            line-height: 1.8;
+
+            max-width: 520px;
+        }
+
+
+        /* =========================================================
+           SOLUTIONS
+        ========================================================= */
+
+        .solutions-section {
+            background: var(--bg);
+        }
+
+        .solutions-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+        .solution-card {
+            position: relative;
+
+            min-height: 470px;
+
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+
+            background: #101820;
+        }
+
+        .solution-image {
+            position: absolute;
+            inset: 0;
+        }
+
+        .solution-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            opacity: .58;
+
+            filter: saturate(.7);
+
+            transition:
+                transform .9s ease,
+                opacity .6s ease,
+                filter .6s ease;
+        }
+
+        .solution-card:hover img {
+            transform: scale(1.08);
+
+            opacity: .72;
+
+            filter: saturate(1);
+        }
+
+        .solution-overlay {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    #0b1218 5%,
+                    rgba(11,18,24,.72) 45%,
+                    rgba(11,18,24,.05)
+                );
+        }
+
+        .solution-content {
+            position: absolute;
+
+            left: 40px;
+            right: 40px;
+            bottom: 38px;
+        }
+
+        .solution-tag {
+            display: inline-block;
+
+            margin-bottom: 14px;
+
+            padding: 7px 11px;
+
+            border: 1px solid rgba(157,198,100,.3);
+
+            color: var(--green);
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .solution-content h3 {
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 32px;
+            font-weight: 600;
+
+            margin-bottom: 12px;
+        }
+
+        .solution-content p {
+            color: #bac3ca;
+
+            font-size: 13px;
+            line-height: 1.75;
+
+            max-width: 520px;
+        }
+
+
+        /* =========================================================
+           WHY US
+        ========================================================= */
+
+        .why-section {
+            background: var(--bg-dark);
+        }
+
+        .why-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .why-card {
+            padding: 35px 28px;
+
+            min-height: 255px;
+
+            border: 1px solid var(--border);
+
+            background: rgba(255,255,255,.018);
+
+            transition:
+                transform .45s ease,
+                background .45s ease,
+                border-color .45s ease;
+        }
+
+        .why-card:hover {
+            transform: translateY(-8px);
+
+            background: rgba(157,198,100,.035);
+
+            border-color: rgba(157,198,100,.25);
+        }
+
+        .why-icon {
+            width: 48px;
+            height: 48px;
+
+            display: grid;
+            place-items: center;
+
+            margin-bottom: 40px;
+
+            border: 1px solid rgba(157,198,100,.25);
+
+            color: var(--green);
+
+            font-size: 18px;
+
+            transition:
+                background .3s ease,
+                transform .3s ease;
+        }
+
+        .why-card:hover .why-icon {
+            background: rgba(157,198,100,.10);
+            transform: rotate(5deg);
+        }
+
+        .why-card h3 {
+            font-size: 17px;
+            font-weight: 600;
+
+            margin-bottom: 12px;
+        }
+
+        .why-card p {
+            color: var(--muted);
+
+            font-size: 13px;
+            line-height: 1.75;
+        }
+
+
+        /* =========================================================
+           PROCESS
+        ========================================================= */
+
+        .process-section {
+            background: var(--bg);
+        }
+
+        .process-list {
+            border-top: 1px solid var(--border);
+        }
+
+        .process-item {
+            display: grid;
+
+            grid-template-columns: 100px 1fr 1.2fr;
+
+            gap: 35px;
+
+            align-items: center;
+
+            padding: 38px 0;
+
+            border-bottom: 1px solid var(--border);
+
+            transition: padding .4s ease;
+        }
+
+        .process-item:hover {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .process-number {
+            color: var(--green);
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            letter-spacing: 2px;
+        }
+
+        .process-item h3 {
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 23px;
+            font-weight: 600;
+        }
+
+        .process-item p {
+            color: var(--muted);
+
+            font-size: 13px;
+            line-height: 1.75;
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta-section {
+            padding: 130px 0;
+
+            background:
+                radial-gradient(
+                    circle at 20% 50%,
+                    rgba(74,106,172,.18),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 80% 50%,
+                    rgba(157,198,100,.12),
+                    transparent 35%
+                ),
+                var(--bg-dark);
+        }
+
+        .cta-box {
+            position: relative;
+
+            padding: 85px 60px;
+
+            text-align: center;
+
+            border: 1px solid var(--border);
+
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            left: -100px;
+            bottom: -120px;
+
+            border-radius: 50%;
+
+            background: rgba(74,106,172,.15);
+
+            filter: blur(50px);
+        }
+
+        .cta-box::after {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            right: -100px;
+            top: -120px;
+
+            border-radius: 50%;
+
+            background: rgba(157,198,100,.12);
+
+            filter: blur(50px);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-family: "Montserrat", sans-serif;
+
+            font-size: clamp(35px, 5vw, 62px);
+
+            line-height: 1.05;
+
+            font-weight: 600;
+
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+        .cta-content h2 span {
+            color: var(--green);
+        }
+
+        .cta-content p {
+            max-width: 620px;
+
+            margin: 22px auto 35px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+
+            padding: 15px 25px;
+
+            background: var(--green);
+
+            color: #101820;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 15px 35px rgba(157,198,100,.20);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            background: #0a1015;
+
+            padding: 70px 0 25px;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.5fr
+                1fr
+                1fr
+                1fr;
+
+            gap: 50px;
+
+            padding-bottom: 55px;
+        }
+
+        .footer-logo img {
+            width: 145px;
+        }
+
+        .footer-about {
+            max-width: 350px;
+
+            margin-top: 20px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer-title {
+            color: #ffffff;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            margin-bottom: 22px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+
+            font-size: 13px;
+
+            transition: color .3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--green);
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding-top: 23px;
+
+            border-top: 1px solid var(--border);
+
+            color: #68737d;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================================================
+           SCROLL REVEAL ANIMATIONS
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(60px);
+
+            transition:
+                opacity .9s cubic-bezier(.22,.61,.36,1),
+                transform .9s cubic-bezier(.22,.61,.36,1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        .reveal-left {
+            opacity: 0;
+
+            transform: translateX(-70px);
+
+            transition:
+                opacity .9s cubic-bezier(.22,.61,.36,1),
+                transform .9s cubic-bezier(.22,.61,.36,1);
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+
+            transform: translateX(0);
+        }
+
+
+        .reveal-right {
+            opacity: 0;
+
+            transform: translateX(70px);
+
+            transition:
+                opacity .9s cubic-bezier(.22,.61,.36,1),
+                transform .9s cubic-bezier(.22,.61,.36,1);
+        }
+
+        .reveal-right.active {
+            opacity: 1;
+
+            transform: translateX(0);
+        }
+
+
+        .scale-reveal {
+            opacity: 0;
+
+            transform: scale(.90);
+
+            transition:
+                opacity 1s ease,
+                transform 1s cubic-bezier(.22,.61,.36,1);
+        }
+
+        .scale-reveal.active {
+            opacity: 1;
+
+            transform: scale(1);
+        }
+
+
+        /* =========================================================
+           STAGGER
+        ========================================================= */
+
+        .stagger > * {
+            opacity: 0;
+
+            transform: translateY(45px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s cubic-bezier(.22,.61,.36,1);
+        }
+
+        .stagger.active > *:nth-child(1) {
+            transition-delay: .05s;
+        }
+
+        .stagger.active > *:nth-child(2) {
+            transition-delay: .15s;
+        }
+
+        .stagger.active > *:nth-child(3) {
+            transition-delay: .25s;
+        }
+
+        .stagger.active > *:nth-child(4) {
+            transition-delay: .35s;
+        }
+
+        .stagger.active > * {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+           HERO LOAD ANIMATION
+        ========================================================= */
+
+        .hero-content .eyebrow,
+        .hero-content .hero-title,
+        .hero-content .hero-description,
+        .hero-content .hero-line {
+            opacity: 0;
+
+            transform: translateY(35px);
+
+            animation:
+                heroReveal .9s cubic-bezier(.22,.61,.36,1)
+                forwards;
+        }
+
+        .hero-content .eyebrow {
+            animation-delay: .15s;
+        }
+
+        .hero-content .hero-title {
+            animation-delay: .30s;
+        }
+
+        .hero-content .hero-description {
+            animation-delay: .45s;
+        }
+
+        .hero-content .hero-line {
+            animation-delay: .60s;
+        }
+
+        @keyframes heroReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================================================
+           PARALLAX IMAGE
+        ========================================================= */
+
+        .parallax-image {
+            transform: translateY(0) scale(1.04);
+
+            transition: transform .15s linear;
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 991px) {
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 4%;
+                right: 4%;
+
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+
+                gap: 0;
+
+                padding: 15px;
+
+                background: rgba(13,21,28,.98);
+
+                border: 1px solid var(--border);
+                border-radius: 15px;
+
+                opacity: 0;
+                visibility: hidden;
+
+                transform: translateY(-15px);
+
+                transition:
+                    opacity .3s ease,
+                    visibility .3s ease,
+                    transform .3s ease;
+            }
+
+            /* Desktop-il arrow hide cheyyuka */
+.arrow {
+    display: none;
+}
+
+
+
+/* Mobile / tablet responsive-il arrow show cheyyuka */
+@media (max-width: 991px) {
+    .dropdown > a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 4px;
+    }
+
+    .dropdown .arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        line-height: 1;
+        margin: 0;
+        padding: 0;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+    }
+
+    .dropdown.open .arrow {
+        transform: rotate(180deg);
+    }
+}
+
+
+
+   
+
+            .nav-links.active {
+                opacity: 1;
+                visibility: visible;
+
+                transform: translateY(0);
+            }
+
+            .nav-links > li > a {
+                display: block;
+
+                padding: 16px 12px;
+            }
+
+            .nav-links > li > a::after {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+                margin-right: 64px;
+            }
+            
+
+            .dropdown-menu {
+                position: static;
+
+                width: 100%;
+
+                transform: none;
+
+                display: none;
+
+                margin-top: 5px;
+
+                box-shadow: none;
+            }
+
+            .dropdown.open .dropdown-menu {
+                display: block;
+
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                display: none;
+            }
+
+            .dropdown.open:hover .dropdown-menu {
+                display: block;
+            }
+
+            .who-grid {
+                gap: 50px;
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 767px) {
+
+            .section {
+                padding: 85px 0;
+            }
+
+            .about-hero {
+                min-height: 78vh;
+
+                padding-top: 130px;
+            }
+
+            .hero-title {
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+
+                line-height: 1.8;
+            }
+
+            .who-grid {
+                grid-template-columns: 1fr;
+
+                gap: 45px;
+            }
+
+            .image-wrap img {
+                height: 420px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .solution-card {
+                min-height: 430px;
+            }
+
+            .process-item {
+                grid-template-columns: 65px 1fr;
+
+                gap: 15px;
+            }
+
+            .process-item p {
+                grid-column: 2;
+            }
+
+            .cta-box {
+                padding: 65px 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+
+                gap: 40px 25px;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+
+            header {
+                height: 72px;
+            }
+
+            header.scrolled {
+                height: 65px;
+            }
+
+            .logo img {
+                width: 120px;
+            }
+
+            .nav-links {
+                top: 65px;
+            }
+
+            .about-hero {
+                min-height: 80vh;
+
+                padding:
+                    120px 0
+                    75px;
+            }
+
+            .hero-title {
+                font-size: 43px;
+
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 13px;
+            }
+
+            .section {
+                padding: 75px 0;
+            }
+
+            .section-heading {
+                margin-bottom: 45px;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+
+            .image-wrap img {
+                height: 330px;
+            }
+
+            .image-border {
+                left: 13px;
+                right: 13px;
+                top: 13px;
+                bottom: 13px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat {
+                padding: 30px 18px;
+            }
+
+            .stat-number {
+                font-size: 32px;
+            }
+
+            .stat-title {
+                font-size: 11px;
+            }
+
+            .stat-text {
+                font-size: 11px;
+            }
+
+            .mission-card {
+                padding: 35px 25px;
+
+                min-height: 270px;
+            }
+
+            .card-number {
+                margin-bottom: 40px;
+            }
+
+            .mission-card h3 {
+                font-size: 24px;
+            }
+
+            .solution-card {
+                min-height: 380px;
+            }
+
+            .solution-content {
+                left: 25px;
+                right: 25px;
+                bottom: 25px;
+            }
+
+            .solution-content h3 {
+                font-size: 26px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-card {
+                min-height: 220px;
+            }
+
+            .process-item {
+                padding: 30px 0;
+            }
+
+            .process-item h3 {
+                font-size: 19px;
+            }
+
+            .cta-section {
+                padding: 85px 0;
+            }
+
+            .cta-content h2 {
+                font-size: 35px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+
+                gap: 10px;
+
+                align-items: flex-start;
+            }
+        }
+
+
+        /* =========================================================
+           REDUCE MOTION
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+
+            .reveal,
+            .reveal-left,
+            .reveal-right,
+            .scale-reveal,
+            .stagger > * {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        
+/* =========================================================
+   MOBILE PRODUCTS DROPDOWN FIX
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .nav-container {
+        width: 92%;
+        min-width: 0;
+    }
+
+    .menu-toggle {
+        flex-shrink: 0;
+        margin-right: 0;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 78px;
+        left: 4%;
+        right: 4%;
+        width: auto;
+        max-width: 100%;
+        max-height: calc(100vh - 100px);
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        padding: 12px;
+
+        background: rgba(13, 21, 28, 0.98);
+        border: 1px solid var(--border);
+        border-radius: 15px;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        transform: translateY(-10px);
+
+        transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease,
+            transform 0.3s ease;
+
+        z-index: 1001;
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .nav-links > li {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .nav-links > li > a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 100%;
+        padding: 15px 12px;
+
+        white-space: normal;
+    }
+
+    .nav-links > li > a::after {
+        display: none;
+    }
+
+    /* Products dropdown stays inside the mobile menu */
+    .dropdown {
+        width: 100%;
+        position: relative;
+    }
+
+    .dropdown > a {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .dropdown .arrow {
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+    }
+
+    .dropdown.open .arrow {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+        position: static !important;
+        top: auto;
+        left: auto;
+
+        display: none;
+        width: 100%;
+        max-width: 100%;
+
+        margin: 0;
+        padding: 5px 8px 8px;
+
+        transform: none !important;
+        opacity: 1;
+        visibility: visible;
+
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 10px;
+
+        box-shadow: none;
+        overflow: hidden;
+    }
+
+    .dropdown.open .dropdown-menu {
+        display: block;
+    }
+
+    /* Disable desktop hover behavior on mobile */
+    .dropdown:hover .dropdown-menu {
+        display: none;
+    }
+
+    .dropdown.open:hover .dropdown-menu {
+        display: block;
+        width:329px;
+    }
+
+    .dropdown-menu a {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 13px 12px;
+        font-size: 13px;
+        overflow-wrap: anywhere;
+    }
+
+    .dropdown-menu a:hover {
+        transform: none;
+        background: rgba(157, 198, 100, 0.09);
+    }
+}
+
+@media (max-width: 480px) {
+
+    .nav-links {
+        top: 65px;
+        left: 4%;
+        right: 4%;
+        max-height: calc(100vh - 80px);
+    }
+
+    header:not(.scrolled) .nav-links {
+        top: 72px;
+    }
+
+    .menu-toggle {
+        margin-right: 56px;
+    }
+}
+
+
+@media (max-width: 991px) {
+    .dropdown > a {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: flex-start !important;
+        gap: 4px !important;
+        width: auto !important;
+    }
+
+    .dropdown .arrow {
+        display: inline-block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        color: #ffffff !important;
+        font-size: 12px !important;
+        line-height: 1 !important;
+        margin-left: 2px !important;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+    }
+
+    .dropdown.open .arrow {
+        transform: rotate(0deg);
+    }
+}
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         HEADER
+    ========================================================= -->
+
+    <header id="header">
+
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                <img src="./images/Anmegh - Logo --1.png" alt="Solar Logo">
+            </a>
+
+
+            <ul class="nav-links" id="navLinks">
+
+                <li>
+                    <a href="index.html">HOME</a>
+                </li>
+
+                <li>
+                    <a href="about.html" class="active">ABOUT</a>
+                </li>
+
+                <li class="dropdown" id="productDropdown">
+
+                    <a href="javascript:void(0)">
+                        PRODUCTS
+                        <span class="arrow">▼</span>
+                    </a>
+
+                    <div class="dropdown-menu">
+
+                        <a href="./solarpanel.html">
+                            <span></span>
+                            Solar Panel
+                        </a>
+
+                        <a href="waterpurifier.html">
+                            <span></span>
+                            Solar Water Purifier
+                        </a>
+
+                    </div>
+
+                </li>
+
+                <li>
+                    <a href="gallery.html">GALLERY</a>
+                </li>
+
+                <li>
+                    <a href="contact.html">CONTACT</a>
+                </li>
+
+            </ul>
+
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+
+    <main>
+
+        <section class="about-hero">
+
+            <div class="hero-grid"></div>
+
+            <div class="hero-glow"></div>
+
+            <div class="hero-container">
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        ABOUT OUR COMPANY
+                    </div>
+
+                    <h1 class="hero-title">
+                        Powering a
+                        <span>cleaner</span>
+                        future.
+                    </h1>
+
+                    <p class="hero-description">
+                        We create modern solar energy and water purification
+                        solutions designed to make clean technology more
+                        accessible, efficient and practical for everyday life.
+                    </p>
+
+                    <div class="hero-line"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             WHO WE ARE
+        ===================================================== -->
+
+        <section class="section who-section">
+
+            <div class="container">
+
+                <div class="who-grid">
+
+                    <div class="image-wrap reveal-left">
+
+                        <img
+                            src="./images/solar8.jpg"
+                            alt="Solar Energy Solution"
+                            class="parallax-image"
+                        >
+
+                        <div class="image-overlay"></div>
+
+                        <div class="image-border"></div>
+
+                    </div>
+
+
+                    <div class="who-content reveal-right">
+
+                        <div class="section-label">
+                            WHO WE ARE
+                        </div>
+
+                        <h3>
+                            Smarter energy.
+                            <span>Cleaner living.</span>
+                        </h3>
+
+                        <p>
+                            We are focused on delivering practical solar
+                            solutions that combine modern technology,
+                            dependable performance and sustainable thinking.
+                        </p>
+
+                        <p>
+                            From solar energy systems to solar water
+                            purification solutions, our approach is centred
+                            around creating products that can support homes,
+                            businesses and communities in making better use
+                            of clean energy.
+                        </p>
+
+                        <p>
+                            We believe the transition towards renewable energy
+                            should be simple, reliable and designed around
+                            real-world needs.
+                        </p>
+
+                        <a href="contact.html" class="text-link">
+                            LET'S BUILD A CLEANER FUTURE
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             STATS
+        ===================================================== -->
+
+        <section class="stats-section">
+
+            <div class="container">
+
+                <div class="stats-grid stagger">
+
+                    <div class="stat">
+
+                        <div class="stat-number">
+                            <span class="counter" data-target="100">0</span>%
+                        </div>
+
+                        <div class="stat-title">
+                            CLEAN ENERGY FOCUS
+                        </div>
+
+                        <div class="stat-text">
+                            Solutions designed around renewable energy.
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div class="stat-number">
+                            <span class="counter" data-target="2">0</span>
+                        </div>
+
+                        <div class="stat-title">
+                            CORE SOLUTIONS
+                        </div>
+
+                        <div class="stat-text">
+                            Solar energy and solar water purification.
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div class="stat-number">
+                            <span class="counter" data-target="24">0</span>/7
+                        </div>
+
+                        <div class="stat-title">
+                            CLEAN ENERGY
+                        </div>
+
+                        <div class="stat-text">
+                            Designed for dependable everyday energy use.
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div class="stat-number">
+                            <span class="counter" data-target="100">0</span>%
+                        </div>
+
+                        <div class="stat-title">
+                            SUSTAINABILITY
+                        </div>
+
+                        <div class="stat-text">
+                            A future-focused approach to clean technology.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             MISSION / VISION
+        ===================================================== -->
+
+        <section class="section mission-section">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <div class="section-label">
+                        OUR PURPOSE
+                    </div>
+
+                    <h2 class="section-title">
+                        Technology with
+                        <span style="color:#9dc664;">
+                            purpose.
+                        </span>
+                    </h2>
+
+                    <p class="section-description">
+                        Our work is driven by a simple idea — clean energy
+                        technology should create meaningful value for people
+                        while supporting a more sustainable future.
+                    </p>
+
+                </div>
+
+
+                <div class="mission-grid stagger">
+
+                    <div class="mission-card">
+
+                        <div class="card-number">
+                            01 / MISSION
+                        </div>
+
+                        <h3>
+                            Making clean energy practical.
+                        </h3>
+
+                        <p>
+                            Our mission is to develop and provide practical
+                            solar solutions that help individuals and
+                            businesses move towards cleaner and more
+                            efficient energy use.
+                        </p>
+
+                    </div>
+
+
+                    <div class="mission-card">
+
+                        <div class="card-number">
+                            02 / VISION
+                        </div>
+
+                        <h3>
+                            A smarter sustainable future.
+                        </h3>
+
+                        <p>
+                            We envision a future where renewable energy and
+                            sustainable technology become an everyday part of
+                            modern living.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             SOLUTIONS
+        ===================================================== -->
+
+        <section class="section solutions-section">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <div class="section-label">
+                        WHAT WE DO
+                    </div>
+
+                    <h2 class="section-title">
+                        Solutions built for
+                        <span style="color:#9dc664;">
+                            tomorrow.
+                        </span>
+                    </h2>
+
+                    <p class="section-description">
+                        Explore our clean technology solutions designed to
+                        support efficient energy use and sustainable living.
+                    </p>
+
+                </div>
+
+
+                <div class="solutions-grid">
+
+
+                    <div class="solution-card scale-reveal">
+
+                        <div class="solution-image">
+
+                            <img
+                                src="./images/solar4.jpg"
+                                alt="Solar Panel"
+                            >
+
+                        </div>
+
+                        <div class="solution-overlay"></div>
+
+                        <div class="solution-content">
+
+                            <div class="solution-tag">
+                                SOLAR ENERGY
+                            </div>
+
+                            <h3>
+                                Solar Panels
+                            </h3>
+
+                            <p>
+                                Harness the power of sunlight with modern
+                                solar energy solutions designed for efficient
+                                and sustainable power generation.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="solution-card scale-reveal">
+
+                        <div class="solution-image">
+
+                            <img
+                                src="./images/solar2.jpg"
+                                alt="Solar Water Purifier"
+                            >
+
+                        </div>
+
+                        <div class="solution-overlay"></div>
+
+                        <div class="solution-content">
+
+                            <div class="solution-tag">
+                                CLEAN WATER
+                            </div>
+
+                            <h3>
+                                Solar Water Purifier
+                            </h3>
+
+                            <p>
+                                Combine solar technology with water
+                                purification to support cleaner and more
+                                sustainable water solutions.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             WHY CHOOSE US
+        ===================================================== -->
+
+        <section class="section why-section">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <div class="section-label">
+                        OUR APPROACH
+                    </div>
+
+                    <h2 class="section-title">
+                        Built around
+                        <span style="color:#9dc664;">
+                            what matters.
+                        </span>
+                    </h2>
+
+                </div>
+
+
+                <div class="why-grid stagger">
+
+
+                    <div class="why-card">
+
+                        <div class="why-icon">
+                            ☀
+                        </div>
+
+                        <h3>
+                            Renewable Thinking
+                        </h3>
+
+                        <p>
+                            We focus on solutions that make better use of
+                            renewable resources and support cleaner energy
+                            choices.
+                        </p>
+
+                    </div>
+
+
+                    <div class="why-card">
+
+                        <div class="why-icon">
+                            ◇
+                        </div>
+
+                        <h3>
+                            Modern Technology
+                        </h3>
+
+                        <p>
+                            Our solutions are inspired by modern technology
+                            and designed for practical everyday applications.
+                        </p>
+
+                    </div>
+
+
+                    <div class="why-card">
+
+                        <div class="why-icon">
+                            ✓
+                        </div>
+
+                        <h3>
+                            Reliable Solutions
+                        </h3>
+
+                        <p>
+                            We prioritise dependable solutions with a focus
+                            on functionality, efficiency and usability.
+                        </p>
+
+                    </div>
+
+
+                    <div class="why-card">
+
+                        <div class="why-icon">
+                            ∞
+                        </div>
+
+                        <h3>
+                            Long-Term Vision
+                        </h3>
+
+                        <p>
+                            We look beyond today's requirements to build
+                            solutions aligned with a cleaner future.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PROCESS
+        ===================================================== -->
+
+
+
+
+        <!-- =====================================================
+             CTA
+        ===================================================== -->
+
+        <section class="cta-section">
+
+            <div class="container">
+
+                <div class="cta-box scale-reveal">
+
+                    <div class="cta-content">
+
+                        <h2>
+                            Ready to move towards a
+                            <span>cleaner future?</span>
+                        </h2>
+
+                        <p>
+                            Discover how solar energy and clean water
+                            technology can become part of your next project.
+                        </p>
+
+                        <a href="contact.html" class="cta-button">
+                            GET IN TOUCH
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                <div>
+
+                    <a href="index.html" class="footer-logo">
+
+                        <img
+                            src="./images/Anmegh - Logo --1.png"
+                            alt="Solar Logo"
+                        >
+
+                    </a>
+
+                    <p class="footer-about">
+                        Modern solar energy and solar water purification
+                        solutions focused on cleaner technology and a more
+                        sustainable future.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <div class="footer-title">
+                        Navigation
+                    </div>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="about.html">About</a>
+                        </li>
+
+                        <li>
+                            <a href="gallery.html">Gallery</a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html">Contact</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div>
+
+                    <div class="footer-title">
+                        Solutions
+                    </div>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="./solarpanel.html">
+                                Solar Panel
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./waterpurifier.html">
+                                Solar Water Purifier
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div>
+
+                    <div class="footer-title">
+                        Contact
+                    </div>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="mailto:info@example.com">
+                                tinyt@interactive.com
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="tel:+910000000000">
+                                +91 76453 76542
+                            </a>
+                        </li>
+
+                        <li>
+                            Kerala, India
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 Solar Energy. All Rights Reserved.
+                </span>
+
+                <span>
+                    Clean Energy • Clean Water • Better Future
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
+    <script>
+
+        /* =====================================================
+           HEADER SCROLL EFFECT
+        ===================================================== */
+
+        const header = document.getElementById("header");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+
+        });
+
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", () => {
+
+            navLinks.classList.toggle("active");
+
+        });
+
+
+        /* Close menu when clicking normal links */
+
+        document.querySelectorAll(".nav-links > li > a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                if (!link.parentElement.classList.contains("dropdown")) {
+
+                    navLinks.classList.remove("active");
+
+                }
+
+            });
+
+        });
+
+
+
+        /* =====================================================
+           MOBILE DROPDOWN
+        ===================================================== */
+
+        const productDropdown =
+            document.getElementById("productDropdown");
+
+        const productLink =
+            productDropdown.querySelector("a");
+
+        productLink.addEventListener("click", (e) => {
+
+            if (window.innerWidth <= 991) {
+
+                e.preventDefault();
+
+                productDropdown.classList.toggle("open");
+
+            }
+
+        });
+
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ===================================================== */
+
+        const revealElements = document.querySelectorAll(
+            ".reveal, .reveal-left, .reveal-right, .scale-reveal, .stagger"
+        );
+
+        const observerOptions = {
+
+            threshold: 0.12,
+
+            rootMargin: "0px 0px -60px 0px"
+
+        };
+
+
+        const revealObserver = new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        /*
+                           Add the animation class whenever the element
+                           enters the viewport.
+                           This makes the animation play every time
+                           you scroll to the section.
+                        */
+                        entry.target.classList.add("active");
+
+                    } else {
+
+                        /*
+                           Remove the class after the element leaves
+                           the viewport. When it enters again, the
+                           animation starts from the beginning.
+                        */
+                        entry.target.classList.remove("active");
+
+                    }
+
+                });
+
+            },
+            observerOptions
+        );
+
+
+        revealElements.forEach(element => {
+
+            revealObserver.observe(element);
+
+        });
+
+
+
+        /* =====================================================
+           COUNTER ANIMATION
+        ===================================================== */
+
+        const counters =
+            document.querySelectorAll(".counter");
+
+        let counterAnimationId = 0;
+
+
+        function animateCounter(counter, animationId) {
+
+            const target =
+                Number(counter.getAttribute("data-target"));
+
+            let current = 0;
+
+            const duration = 1500;
+
+            const startTime = performance.now();
+
+
+            function update(currentTime) {
+
+                const progress =
+                    Math.min(
+                        (currentTime - startTime) / duration,
+                        1
+                    );
+
+
+                const eased =
+                    1 - Math.pow(1 - progress, 3);
+
+
+                current =
+                    Math.floor(target * eased);
+
+
+                /* Stop an older animation if the section was re-entered. */
+                if (animationId !== counterAnimationId) return;
+
+                counter.textContent = current;
+
+
+                if (progress < 1) {
+
+                    requestAnimationFrame(update);
+
+                } else {
+
+                    counter.textContent = target;
+
+                }
+
+            }
+
+
+            requestAnimationFrame(update);
+
+        }
+
+
+        const statsSection =
+            document.querySelector(".stats-section");
+
+
+        const counterObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            /* Reset counters before replaying the animation. */
+                            counters.forEach(counter => {
+                                counter.textContent = "0";
+                            });
+
+                            counterAnimationId++;
+
+                            counters.forEach(counter => {
+                                animateCounter(counter, counterAnimationId);
+                            });
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: .35
+                }
+            );
+
+
+        counterObserver.observe(statsSection);
+
+
+
+        /* =====================================================
+           SUBTLE PARALLAX IMAGE
+        ===================================================== */
+
+        const parallaxImage =
+            document.querySelector(".parallax-image");
+
+
+        window.addEventListener("scroll", () => {
+
+            if (!parallaxImage) return;
+
+            const rect =
+                parallaxImage.getBoundingClientRect();
+
+            const windowHeight =
+                window.innerHeight;
+
+
+            if (
+                rect.bottom > 0 &&
+                rect.top < windowHeight
+            ) {
+
+                const progress =
+                    (windowHeight - rect.top) /
+                    (windowHeight + rect.height);
+
+
+                const movement =
+                    (progress - .5) * 28;
+
+
+                parallaxImage.style.transform =
+                    `translateY(${movement}px) scale(1.04)`;
+
+            }
+
+        });
+
+
+
+        /* =====================================================
+           CLOSE MOBILE MENU OUTSIDE
+        ===================================================== */
+
+        document.addEventListener("click", (e) => {
+
+            if (
+                !navLinks.contains(e.target) &&
+                !menuToggle.contains(e.target)
+            ) {
+
+                navLinks.classList.remove("active");
+
+            }
+
+        });
+
+
+
+        /* =====================================================
+           RESET MOBILE DROPDOWN ON DESKTOP
+        ===================================================== */
+
+        window.addEventListener("resize", () => {
+
+            if (window.innerWidth > 991) {
+
+                navLinks.classList.remove("active");
+
+                productDropdown.classList.remove("open");
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
